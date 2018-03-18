@@ -1,6 +1,14 @@
 # SaludEnCasaComponentes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+src/app/common contains common elements per type(form, lists, layout, navigation).
+Form: Button, input text, input select autocomplete
+List: item-persona, item-servicio, item-medicamento
+Layout: Headline title
+Navigation: Paginator
+
+src/app/superuser contains slide 11
+
+src/app/app.component.html contains all items needed to create views
 
 ## Development server
 
