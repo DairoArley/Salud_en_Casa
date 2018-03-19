@@ -9,4 +9,7 @@ import {Component,Input} from '@angular/core';
   templateUrl: 'input-text.component.html',
 })
 
-export class InputText {}
+export class InputText {
+
+  @Input() valor:String;
+}
