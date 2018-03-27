@@ -6,7 +6,7 @@ List: item-persona, item-servicio, item-medicamento
 Layout: Headline title
 Navigation: Paginator
 
-src/app/superuser contains slide 11
+src/app/views contains all views needed, check app.modules to see all routes required to navigae
 
 src/app/app.component.html contains all items needed to create views
 
