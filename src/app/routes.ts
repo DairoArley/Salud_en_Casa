@@ -1,24 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatRadioModule} from '@angular/material/radio';
-import { RouterModule, Routes } from '@angular/router';
-import{
-	MatCardModule, 
-	MatMenuModule,
-	MatToolbarModule,
-  MatIconModule	, 
-  MatSelectModule
-} from '@angular/material';
+import {Routes} from '@angular/router';
 
-import {Router} from './routes'
 import { AppComponent } from './app.component';
 import { Boton } from './common/form/button/boton.component';
 import { InputText } from './common/form/input-text/input-text.component';
@@ -47,60 +28,24 @@ import { RegisterClientsComponent } from './views/cliente/register-clients/regis
 import { ListMedicamentsComponent } from './views/medicaments/list-medicaments/list-medicaments.component';
 
 
-import { clientService } from './services/client.service';
-import { HttpService } from './services/http.service';
-import { medicamentService } from './services/medicament.service';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    Boton,
-    InputText,
-    InputSelectComponent,
-    ItemPersonaComponent,
-    ItemServicioComponent,
-    ItemMedicamentoComponent,
-    PaginatorComponent,
-    TitleComponent,
-    InputPasswordComponent,
-    InputRadioComponent,
-    LoginComponent,
-    ChangePasswordComponent,
-    AddDrugsComponent,
-    AdminDrugsComponent,
-    AdminusersComponent,
-    CompletedServicesComponent,
-    DescriptionCompletedServicesComponent,
-    DescriptionPendingServicesComponent,
-    DescriptionRealTimeServicesComponent,
-    GenerateReportComponent,
-    PendingServicesComponent,
-    RealTimeServicesComponent,
-    ListClientsComponent,
-    RegisterClientsComponent,
-    ListMedicamentsComponent
-  ],
-  imports: [
-    RouterModule.forRoot(Router), 
-    HttpModule,
-    BrowserModule,FormsModule,
-     ReactiveFormsModule, 
-     BrowserAnimationsModule,
-     NoopAnimationsModule,
-     MatRadioModule, 
-     MatButtonModule,
-     MatInputModule,
-     MatPaginatorModule, 
-     MatAutocompleteModule,
-     MatCardModule, 
-	MatMenuModule,
-	MatToolbarModule,
-  MatIconModule	, 
-  MatSelectModule
-  ],
-  providers: [clientService, HttpService, medicamentService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+export const Router: Routes = [
+{path:'',pathMatch:'full', redirectTo:'/login'}, 
+{ path: 'login', component: LoginComponent},
+{ path: 'change-password', component: ChangePasswordComponent},
+{ path: 'add-drugs', component: AddDrugsComponent},
+{ path: 'admin-drugs', component: AdminDrugsComponent},
+{ path: 'admin-users', component: AdminusersComponent},
+{ path: 'completed-services', component: CompletedServicesComponent},
+{ path: 'completed-services/:service', component: DescriptionCompletedServicesComponent},
+{ path: 'pending-services', component: PendingServicesComponent},
+{ path: 'pending-services/:service', component: DescriptionPendingServicesComponent},
+{ path: 'real-time-service-description', component: DescriptionRealTimeServicesComponent},
+{ path: 'real-time-services', component: RealTimeServicesComponent},
+{ path: 'generate-report', component: GenerateReportComponent},
+{ path: 'listClient', component: ListClientsComponent},
+{ path: 'registerClient', component: RegisterClientsComponent},
+{ path: 'listMedicament', component: ListMedicamentsComponent}]
+
 

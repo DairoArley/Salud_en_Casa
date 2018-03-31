@@ -1,0 +1,15 @@
+        
+  <h1>Clientes</h1>
+  <mat-card *ngFor = "let data of client">
+      <mat-card-header>
+      <mat-card-title>
+        <H4>Nombre: {{data.name}}</H4>
+        <h4>Apellido: {{data.lastName}}</h4>
+        <h4>Usuario: {{data.user}}</h4>
+        <h4>Edad: {{data.age}}</h4>
+        <h4>Genero: {{data.gender}}</h4>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+   
+

@@ -1,0 +1,46 @@
+<titulo valor="Registrar de clientes"></titulo>
+<form (ngSubmit)="registerClient(clientForm);" #clientForm="ngForm" class="example-form">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="email" [(ngModel)]="client.email" name="email" required>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Nombre" [(ngModel)]="client.name" name="name">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text"  placeholder="Apellido" [(ngModel)]="client.lastName" name="lastName">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Usuario" [(ngModel)]="client.user" name="user" required>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-select placeholder="Genero" [(ngModel)]="client.gender"  name ="gender">
+        <mat-option *ngFor="let data of options" [value]="data.value">
+          {{ data.option }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text"  placeholder="Edad" [(ngModel)]="client.age" name="age">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <button class="example-button-row" mat-button block>Enviar</button>
+    </div>
+  </div>
+</form>
+
