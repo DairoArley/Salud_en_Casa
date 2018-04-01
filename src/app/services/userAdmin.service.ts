@@ -6,26 +6,26 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/first';
 
-import { client  } from '../models/client.model';
+import { userAdmin  } from '../models/userAdmin.model';
 
 import { changePass  } from '../models/changePass.model';
 import { HttpService } from './http.service';
 import { Config } from '../config';
 
 @Injectable()
-export class clientService extends HttpService{
+export class userAdminService extends HttpService{
 
-	url = Config.API_SERVER_CLIENTS;
+	url = Config.API_SERVER_USERADMIN
 	constructor(public _http: Http){
 		super(_http)
 	}
 
-	getAllclient() : Observable<Array<client>>{
+	getAllclient() : Observable<Array<userAdmin>>{
 		return this.get(this.url);
 	}
 
-	onSaveclient(client : client){
-        return this.post(this.url, client)				
+	onSaveclient(userAdmin : userAdmin){
+		return this.post(this.url, userAdmin)				
 	}
 
 	onChangePass(url, changePass : changePass){

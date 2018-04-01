@@ -1,4 +1,6 @@
 import {Routes} from '@angular/router';
+import { ClientGuardGuard } from './views/cliente/client-guard.guard';
+
 
 import { AppComponent } from './app.component';
 import { Boton } from './common/form/button/boton.component';
@@ -11,8 +13,6 @@ import { PaginatorComponent } from './common/navigation/paginator/paginator.comp
 import { TitleComponent } from './common/layout/title/title.component';
 import { InputPasswordComponent } from './common/form/input-password/input-password.component';
 import { InputRadioComponent } from './common/form/input-radio/input-radio.component';
-import { LoginComponent } from './views/usuario/login/login.component';
-import { ChangePasswordComponent } from './views/usuario/change-password/change-password.component';
 import { AddDrugsComponent } from './views/superusercountry/add-drugs/add-drugs.component';
 import { AdminDrugsComponent } from './views/superusercountry/admin-drugs/admin-drugs.component';
 import { AdminusersComponent } from './views/superusercountry/adminusers/adminusers.component';
@@ -26,26 +26,50 @@ import { RealTimeServicesComponent } from './views/superusercountry/real-time-se
 import { ListClientsComponent } from './views/cliente/list-clients/list-clients.component';
 import { RegisterClientsComponent } from './views/cliente/register-clients/register-clients.component';
 import { ListMedicamentsComponent } from './views/medicaments/list-medicaments/list-medicaments.component';
-
-
-
+import { RegisterMedicamentsComponent } from './views/medicaments/register-medicaments/register-medicaments.component';
+import { LoginClientComponent } from './views/cliente/login-client/login-client.component';
+import { HomeClientComponent } from './views/cliente/home-client/home-client.component';
+import { ChangePassClientComponent } from './views/cliente/change-pass-client/change-pass-client.component';
+import { ListMedicamentsClientComponent } from './views/cliente/list-medicaments-client/list-medicaments-client.component';
+import { HomeComponent } from './views/common/home/home.component';
+import { LoginAdminUserComponent } from './views/usuarioAdmin/login-admin-user/login-admin-user.component';
+import { HomeAdminUserComponent } from './views/usuarioAdmin/home-admin-user/home-admin-user.component';
+import { ChangePassUserAdminComponent } from './views/usuarioAdmin/change-pass-user-admin/change-pass-user-admin.component';
+import { GuardUserAdminGuard } from './views/usuarioAdmin/guard-user-admin.guard';
+import { HomeUserMessengerComponent } from './views/usuarioMensajero/home-user-messenger/home-user-messenger.component';
+import { LoginUserMessengerComponent } from './views/usuarioMensajero/login-user-messenger/login-user-messenger.component';
+import { ChangePassUserMessengerComponent } from './views/usuarioMensajero/change-pass-user-messenger/change-pass-user-messenger.component';
+import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-messenger.guard';
 
 export const Router: Routes = [
-{path:'',pathMatch:'full', redirectTo:'/login'}, 
-{ path: 'login', component: LoginComponent},
-{ path: 'change-password', component: ChangePasswordComponent},
-{ path: 'add-drugs', component: AddDrugsComponent},
-{ path: 'admin-drugs', component: AdminDrugsComponent},
-{ path: 'admin-users', component: AdminusersComponent},
-{ path: 'completed-services', component: CompletedServicesComponent},
-{ path: 'completed-services/:service', component: DescriptionCompletedServicesComponent},
-{ path: 'pending-services', component: PendingServicesComponent},
-{ path: 'pending-services/:service', component: DescriptionPendingServicesComponent},
-{ path: 'real-time-service-description', component: DescriptionRealTimeServicesComponent},
-{ path: 'real-time-services', component: RealTimeServicesComponent},
-{ path: 'generate-report', component: GenerateReportComponent},
+
+{path:'',pathMatch:'full', redirectTo:'/home'}, 
+{ path: 'home', component: HomeComponent},
+{ path: 'loginClient', component: LoginClientComponent},
+//{ path: 'change-password', component: ChangePasswordComponent},
+//{ path: 'add-drugs', component: AddDrugsComponent},
+//{ path: 'admin-drugs', component: AdminDrugsComponent},
+//{ path: 'admin-users', component: AdminusersComponent},
+//{ path: 'completed-services', component: CompletedServicesComponent},
+//{ path: 'completed-services/:service', component: DescriptionCompletedServicesComponent},
+//{ path: 'pending-services', component: PendingServicesComponent},
+//{ path: 'pending-services/:service', component: DescriptionPendingServicesComponent},
+//{ path: 'real-time-service-description', component: DescriptionRealTimeServicesComponent},
+//{ path: 'real-time-services', component: RealTimeServicesComponent},
+//{ path: 'generate-report', component: GenerateReportComponent},
 { path: 'listClient', component: ListClientsComponent},
 { path: 'registerClient', component: RegisterClientsComponent},
-{ path: 'listMedicament', component: ListMedicamentsComponent}]
+{ path: 'listMedicament', component: ListMedicamentsComponent},
+{ path: 'registerMedicament', component: RegisterMedicamentsComponent},
+{ path: 'homeClient', component: HomeClientComponent, canActivate: [ClientGuardGuard]},
+{ path: 'changePassClient', component: ChangePassClientComponent, canActivate: [ClientGuardGuard]},
+{ path: 'medicaments', component: ListMedicamentsClientComponent,  canActivate: [ClientGuardGuard]},
+{ path: 'loginAdminUser', component: LoginAdminUserComponent },
+{ path: 'homeAdminUser', component: HomeAdminUserComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'changePassUserAdmin', component: ChangePassUserAdminComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'homeUserMessenger', component: HomeUserMessengerComponent, canActivate:[GuardUserMessengerGuard]},
+{ path: 'loginUserMessenger', component: LoginUserMessengerComponent},
+{ path: 'changePassUserMessenger', component: ChangePassUserMessengerComponent, canActivate:[GuardUserMessengerGuard]}]
+
 
 

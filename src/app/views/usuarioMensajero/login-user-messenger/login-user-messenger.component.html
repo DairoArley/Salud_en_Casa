@@ -1,0 +1,21 @@
+<titulo valor="Iniciar sesión"></titulo>
+<form (ngSubmit)="onSingIn(singInForm);" #singInForm="ngForm" class="example-form">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="usuario" [(ngModel)]="user.user" name="user" required>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="contraseña" type="password" [(ngModel)]="user.password" name="password" required>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="example-button-row" [disabled]="!singInForm.form.valid" mat-button block>Iniciar sesion</button>
+    </div>
+  </div>
+ </form> 

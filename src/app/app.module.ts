@@ -17,6 +17,7 @@ import{
   MatIconModule	, 
   MatSelectModule
 } from '@angular/material';
+import {Ng2Webstorage} from 'ngx-webstorage';
 
 import {Router} from './routes'
 import { AppComponent } from './app.component';
@@ -30,8 +31,6 @@ import { PaginatorComponent } from './common/navigation/paginator/paginator.comp
 import { TitleComponent } from './common/layout/title/title.component';
 import { InputPasswordComponent } from './common/form/input-password/input-password.component';
 import { InputRadioComponent } from './common/form/input-radio/input-radio.component';
-import { LoginComponent } from './views/usuario/login/login.component';
-import { ChangePasswordComponent } from './views/usuario/change-password/change-password.component';
 import { AddDrugsComponent } from './views/superusercountry/add-drugs/add-drugs.component';
 import { AdminDrugsComponent } from './views/superusercountry/admin-drugs/admin-drugs.component';
 import { AdminusersComponent } from './views/superusercountry/adminusers/adminusers.component';
@@ -50,6 +49,24 @@ import { ListMedicamentsComponent } from './views/medicaments/list-medicaments/l
 import { clientService } from './services/client.service';
 import { HttpService } from './services/http.service';
 import { medicamentService } from './services/medicament.service';
+import { RegisterMedicamentsComponent } from './views/medicaments/register-medicaments/register-medicaments.component';
+import { LoginClientComponent } from './views/cliente/login-client/login-client.component';
+import { AuthenticationService } from './services/authentication.service';
+import { HomeClientComponent } from './views/cliente/home-client/home-client.component';
+import { ChangePassClientComponent } from './views/cliente/change-pass-client/change-pass-client.component';
+import { ListMedicamentsClientComponent } from './views/cliente/list-medicaments-client/list-medicaments-client.component';
+import { HomeComponent } from './views/common/home/home.component';
+import { LoginAdminUserComponent } from './views/usuarioAdmin/login-admin-user/login-admin-user.component';
+import { HomeAdminUserComponent } from './views/usuarioAdmin/home-admin-user/home-admin-user.component';
+import { ClientGuardGuard } from './views/cliente/client-guard.guard';
+import { ChangePassUserAdminComponent } from './views/usuarioAdmin/change-pass-user-admin/change-pass-user-admin.component';
+import { userAdminService } from './services/userAdmin.service';
+import { GuardUserAdminGuard } from './views/usuarioAdmin/guard-user-admin.guard';
+import { userMessengerService } from './services/userMessenger.service';
+import { HomeUserMessengerComponent } from './views/usuarioMensajero/home-user-messenger/home-user-messenger.component';
+import { LoginUserMessengerComponent } from './views/usuarioMensajero/login-user-messenger/login-user-messenger.component';
+import { ChangePassUserMessengerComponent } from './views/usuarioMensajero/change-pass-user-messenger/change-pass-user-messenger.component';
+import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-messenger.guard';
 
 
 @NgModule({
@@ -65,8 +82,6 @@ import { medicamentService } from './services/medicament.service';
     TitleComponent,
     InputPasswordComponent,
     InputRadioComponent,
-    LoginComponent,
-    ChangePasswordComponent,
     AddDrugsComponent,
     AdminDrugsComponent,
     AdminusersComponent,
@@ -79,7 +94,19 @@ import { medicamentService } from './services/medicament.service';
     RealTimeServicesComponent,
     ListClientsComponent,
     RegisterClientsComponent,
-    ListMedicamentsComponent
+    ListMedicamentsComponent,
+    RegisterMedicamentsComponent,
+    LoginClientComponent,
+    HomeClientComponent,
+    ChangePassClientComponent,
+    ListMedicamentsClientComponent,
+    HomeComponent,
+    LoginAdminUserComponent,
+    HomeAdminUserComponent,
+    ChangePassUserAdminComponent,
+    HomeUserMessengerComponent,
+    LoginUserMessengerComponent,
+    ChangePassUserMessengerComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 
@@ -97,9 +124,11 @@ import { medicamentService } from './services/medicament.service';
 	MatMenuModule,
 	MatToolbarModule,
   MatIconModule	, 
-  MatSelectModule
+  MatSelectModule,
+  Ng2Webstorage
   ],
-  providers: [clientService, HttpService, medicamentService],
+  providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
+    userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ListMedicamentsComponent implements OnInit {
   medicament: Array<medicament>;
-  photos: Array<any>;
+	photos: Array<any>;
+
 
   constructor(private _medicamentService: medicamentService, 
     private _router : Router) { }
@@ -32,6 +33,16 @@ export class ListMedicamentsComponent implements OnInit {
 				//console.log(this.implement);
 			}
 		);
-  }
+	}
+	
+	DeleteMedicament(med :medicament){
+
+		console.log(med)
+		this._medicamentService.onDeleteMedicament(med).subscribe(data => {
+			//this._router.navigate(['/item']);
+		})
+		this.getAllMedicaments();
+		//this._router.navigate(['/items']); //que lo lleve al componmente de verificar borrado
+	}
 
 }

@@ -22,14 +22,13 @@ export class medicamentService extends HttpService{
 		return this.get(url);
 	}
 
-	onSaveclient(medicament : medicament){
+	onSaveMedicament(medicament : medicament){
 		const url = Config.API_SERVER_MEDICAMENT;
         return this.post(url, medicament)				
 	}
-/*
-	onDeleteImplement(implement :Implement){
-		const url = Config.API_SERVER_ITEMS+"/"+implement.typeImplement;
-		const token = this._authenticactionServices.user.api_token;
-            return this.delete(url, token);			
-	}*/
+
+	onDeleteMedicament(medicament :medicament){
+		const url = Config.API_SERVER_MEDICAMENT+"/"+medicament.medicament;
+            return this.delete(url);			
+	}
 }   

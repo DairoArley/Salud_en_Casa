@@ -1,0 +1,11 @@
+ACA VA TODO LO BONITO QUE VE UN USUARIO AL INGRESAR: FOTOS, INFO DE LA EMPRESA, MENU...ETC
+
+<div class="col-sm-12 col-md-6">
+  Este es el menu.
+    <a href="/medicaments">Ver medicamentos</a>>
+    <a href="/changePassClient">Cambiar contraseña</a>>
+    <li *ngIf="_authenticationServices.isLoggedIn() !== ''">
+        <a href="/home" (click)="logout()">Salir</a>
+ </li>
+  
+</div>
