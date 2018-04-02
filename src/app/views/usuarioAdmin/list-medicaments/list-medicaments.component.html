@@ -1,45 +1,167 @@
-<h1>
-  Medicamentos</h1>
-  <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form"> 
-     <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="buscar por medicamento" [(ngModel)]="medi.medicament" name="medicament">
-      </mat-form-field>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
-    </div>
+<div *ngIf="modify; else elseBlock1">
+  <div *ngIf="search; else elseBlock">
+    <h1>Medicamentos</h1>
+    <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="buscar por medicamento" [(ngModel)]="medi.medicament" name="medicament">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
+        </div>
+      </div>
+    </form>
+    <form (ngSubmit)="FindByCat(findByCatForm);" #findByCatForm="ngForm" class="example-form">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <mat-select placeholder="Tipo" [(ngModel)]="medi.category" name="category">
+            <mat-option *ngFor="let data of options" [value]="data.value">
+              {{ data.option }}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
+        </div>
+      </div>
+    </form>
+
+
+    <mat-card *ngFor="let data of medicament; let j = index">
+      <mat-card-title>
+        <H4>Medicamento: {{data.medicament}}</H4>
+        <h4>Categoria: {{data.category}}</h4>
+        <h4>Descripción: {{data.description}}</h4>
+        <h4>Caracteristicas: {{data.characterist}}</h4>
+        <h4>Cantidad: {{data.quantity}}</h4>
+        <h4>Valumen: {{data.volumen}}</h4>
+        <h4>Costo: {{data.value}}</h4>
+        <img src="{{ data.photo}} " width="200" height="200">
+      </mat-card-title>
+
+      <mat-card-actions>
+        <button mat-button (click)="DeleteMedicament(data)">
+          <mat-icon>delete</mat-icon>
+          Eliminar
+        </button>
+        <button mat-button (click)="ModifyMedicament(data)">
+          <mat-icon>cached</mat-icon>
+          Modificar
+        </button>
+
+      </mat-card-actions>
+
+    </mat-card>
   </div>
-</form>
+</div>
+
+<ng-template #elseBlock>
+  <mat-card *ngFor="let data of medicament; let j = index">
+    <mat-card-title>
+      <H4>Medicamento: {{data.medicament}}</H4>
+      <h4>Categoria: {{data.category}}</h4>
+      <h4>Descripción: {{data.description}}</h4>
+      <h4>Caracteristicas: {{data.characterist}}</h4>
+      <h4>Cantidad: {{data.quantity}}</h4>
+      <h4>Volumen: {{data.volumen}}</h4>
+      <h4>Costo: {{data.value}}</h4>
+      <img src="{{ data.photo}} " width="200" height="200">
+    </mat-card-title>
+
+    <mat-card-actions>
+      <button mat-button (click)="DeleteMedicament(data)">
+        <mat-icon>delete</mat-icon>
+        Eliminar
+      </button>
+     
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</ng-template>
 
 
-
-
-
-
-<mat-card *ngFor="let data of medicament; let j = index">
+<ng-template #elseBlock1>
   <mat-card-title>
-    <H4>Medicamento: {{data.medicament}}</H4>
-    <h4>Categoria: {{data.category}}</h4>
-    <h4>Descripción: {{data.description}}</h4>
-    <h4>Caracteristicas: {{data.characterist}}</h4>
-    <h4>Cantidad: {{data.quantity}}</h4>
-    <h4>Valumen: {{data.volumen}}</h4>
-    <h4>Costo: {{data.value}}</h4>
-    <img src="{{ data.photo}} " width="200" height="200">
+    <titulo valor="Actualizar Medicamento"></titulo>
+    <H2>Medicamento a modificar: {{this.medic.medicament}}</H2>
+    <h3>Datos actuales del medicamento</h3>
+    <h4>Categoria: {{this.medic.category}}</h4>
+    <h4>Volumen: {{this.medic.volumen}}</h4>
+    <h4>Cantidad: {{this.medic.quantity}}</h4>
+    <h4>Valor: {{this.medic.value}}</h4>
+    <h4>Caracteristicas: {{this.medic.characterist}}</h4>
+    <h4>Descripción: {{this.medic.description}}</h4>
+    <img src="{{ this.medic.photo}} " width="200" height="200">
+
+
+
+
   </mat-card-title>
 
-  <mat-card-actions>
-    <button mat-button (click)="DeleteMedicament(data)">
-      <mat-icon>delete</mat-icon>
-      Eliminar
-    </button>
-    <button mat-button (click)="modifyMedicament(data)">
-      <mat-icon>cached</mat-icon>
-      Modificar
-    </button>
+  <form #medicamentForm="ngForm" class="example-form">
 
-  </mat-card-actions>
+    <div class="row">
 
-</mat-card>
+      <div class="col-sm-12 col-md-6">
+        <mat-select placeholder="Tipo" [(ngModel)]="mediUpdate.category" name="category">
+          <mat-option *ngFor="let data of options" [value]="data.value">
+            {{ data.option }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="caracteristicas" [(ngModel)]="mediUpdate.characterist" name="lastName">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Cantidad" [(ngModel)]="mediUpdate.quantity" name="quantity" required>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="volumen" [(ngModel)]="mediUpdate.volumen" name="volumen">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="valor" [(ngModel)]="mediUpdate.value" name="value" required>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Url de la foto" [(ngModel)]="mediUpdate.photo" name="photo">
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="descripcion" [(ngModel)]="mediUpdate.description" name="description">
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <button class="example-button-row" mat-button block (click)="updateMedicament(medicamentForm)">Enviar</button>
+      </div>
+    </div>
+  </form>
+
+</ng-template>

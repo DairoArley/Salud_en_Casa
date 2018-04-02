@@ -40,12 +40,11 @@ import { HomeUserMessengerComponent } from './views/usuarioMensajero/home-user-m
 import { LoginUserMessengerComponent } from './views/common/login-user-messenger/login-user-messenger.component';
 import { ChangePassUserMessengerComponent } from './views/usuarioMensajero/change-pass-user-messenger/change-pass-user-messenger.component';
 import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-messenger.guard';
-import { ModifyMedicamentComponent } from './views/usuarioAdmin/modify-medicament/modify-medicament.component';
-import { ResultSearchComponent } from './views/usuarioAdmin/result-search/result-search.component';
 import { RegisterUserAdminComponent } from './views/usuarioAdmin/register-user-admin/register-user-admin.component';
 import { RegisterUserMessengerComponent } from './views/usuarioAdmin/register-user-messenger/register-user-messenger.component';
 import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messenger/list-user-messenger.component';
 import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/list-user-admin.component';
+import {ListRecordComponent} from './views/usuarioAdmin/list-record/list-record.component';
 
 export const Router: Routes = [
 
@@ -76,12 +75,11 @@ export const Router: Routes = [
 { path: 'homeUserMessenger', component: HomeUserMessengerComponent, canActivate:[GuardUserMessengerGuard]},
 { path: 'loginUserMessenger', component: LoginUserMessengerComponent},
 { path: 'changePassUserMessenger', component: ChangePassUserMessengerComponent, canActivate:[GuardUserMessengerGuard]},
-{ path: 'modifyMedicament', component: ModifyMedicamentComponent},
-{ path: 'resultMedicament', component : ResultSearchComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'registerUserAdmin', component : RegisterUserAdminComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'registerUserMessenger', component : RegisterUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'listUserAdmin', component : ListUserAdminComponent, canActivate:[GuardUserAdminGuard]},
-{ path: 'listUserMessenger', component : ListUserMessengerComponent, canActivate:[GuardUserAdminGuard]}]
+{ path: 'listUserMessenger', component : ListUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'listRecord', component : ListRecordComponent, canActivate:[GuardUserAdminGuard]}]
 
 
 

@@ -13,7 +13,6 @@ export class ClientGuardGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this._authenticationServices.isLoggedIn() !== "") {
-      console.log(1)
       if (this._authenticationServices.isLoggedIn() === "client") {
         return true;
       } else {

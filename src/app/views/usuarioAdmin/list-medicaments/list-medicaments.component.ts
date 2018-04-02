@@ -1,49 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { medicamentService } from '../../../services/medicament.service';
-import { medicament } from  '../../../models/medicament.model';
+import { medicament } from '../../../models/medicament.model';
 import { Router } from '@angular/router';
-import {ModifyMedicamentComponent} from '../modify-medicament/modify-medicament.component';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { userAdminService } from '../../../services/userAdmin.service';
 import { SessionStorageService } from 'ngx-webstorage';
-import {Config} from '../../../config';
-import {ResultSearchComponent} from '../result-search/result-search.component';
+import { Config } from '../../../config';
 
 
 @Component({
-  selector: 'app-list-medicaments',
-  templateUrl: './list-medicaments.component.html',
-  styleUrls: ['./list-medicaments.component.css']
+	selector: 'app-list-medicaments',
+	templateUrl: './list-medicaments.component.html',
+	styleUrls: ['./list-medicaments.component.css']
 })
 export class ListMedicamentsComponent implements OnInit {
-  medicament: Array<medicament>;
+	medicament: Array<medicament>;
+	urlName = Config.API_SERVER_FINDBYNAME;
+	urlModify = Config.API_SERVER_MODIFY_MEDICAMENT;
+
+	urlCat = Config.API_SERVER_FINDBYCATEGORY;
+	search = true;
+	modify = true;
+	userSesion;
+	user;
+
 	options = [
-		{value: 'Niños', option: 'Niños'},
-		{value: 'Mamás', option: 'Mamás'},
-		{value: 'Adultos', option: 'Adultos'},
-		{value: 'Pomadas', option: 'Pomadas'},
-		{value: 'Pastillas', option: 'Pastillas'},
-		{value: 'Jarabes', option: 'Jarabes'}
+		{ value: 'Niños', option: 'Niños' },
+		{ value: 'Mamás', option: 'Mamás' },
+		{ value: 'Adultos', option: 'Adultos' },
+		{ value: 'Pomadas', option: 'Pomadas' },
+		{ value: 'Pastillas', option: 'Pastillas' },
+		{ value: 'Jarabes', option: 'Jarabes' }
 	];
-	
-	medi =  new medicament();;
+	mediUpdate = new medicament();
+	medi = new medicament();
+	medic = new medicament();
+	constructor(private _medicamentService: medicamentService,
+		private _router: Router, public _locker: SessionStorageService,
+		public _authenticationService: AuthenticationService) { }
 
-	constructor(private _medicamentService: medicamentService, 
-		public _modifyMedicament :  ModifyMedicamentComponent,
-		private _router : Router, public _locker  :SessionStorageService,
-	public _authenticationService : AuthenticationService, 
-public _resultSerach : ResultSearchComponent) {}
-
-  ngOnInit() {
+	ngOnInit() {
 		this.getAllMedicaments();
 	}
-	getAllMedicaments()	 {
+	getAllMedicaments() {
 		this._medicamentService.getAllmedicaments().subscribe(
 			(data: medicament[]) => {
-        this.medicament = data;
-      
-      },
+				this.medicament = data;
+				this.search = true;
+
+			},
 			err => {
 				console.log(err);
 			},
@@ -53,8 +59,8 @@ public _resultSerach : ResultSearchComponent) {}
 			}
 		);
 	}
-	
-	DeleteMedicament(med :medicament){
+
+	DeleteMedicament(med: medicament) {
 
 		console.log(med)
 		this._medicamentService.onDeleteMedicament(med).subscribe(data => {
@@ -64,19 +70,76 @@ public _resultSerach : ResultSearchComponent) {}
 		//this._router.navigate(['/items']); //que lo lleve al componmente de verificar borrado
 	}
 
-	modifyMedicament(med : medicament){
-	 	this._modifyMedicament.modifyMedicament(med);
-		this._router.navigate(['/modifyMedicament']);
-	}
 
-	
-	
-
-	FindByMed(medicament : medicament){
+	FindByMed(medicament: medicament) {
 		medicament = this.medi;
-		console.log(medicament);
-	
-		this._resultSerach.resultSearch(medicament);
+		if (this._authenticationService.isLoggedIn() !== "") {
+			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
+			    (data: medicament[]) => {
+				this.medicament = data;
+	  
+				this.search = false;
+			  },
+			  err => {
+				console.log(err);
+			  },
+			  () => {
+				//console.log('finished!');
+				//console.log(this.implement);
+			  }
+			);
+		  }
 	}
+
+	FindByCat(medicament: medicament) {
+		medicament = this.medi;
+		if (this._authenticationService.isLoggedIn() !== "") {
+			this._medicamentService.onFindByCat(this.urlCat, medicament).subscribe(
+			    (data: medicament[]) => {
+				this.medicament = data;
+	  
+				this.search = false;
+			  },
+			  err => {
+				console.log(err);
+			  },
+			  () => {
+				//console.log('finished!');
+				//console.log(this.implement);
+			  }
+			);
+		  }
+	}
+
+	ModifyMedicament(medicament :medicament){
+		this.search = true;
+	  this.medic = medicament;
+		if (this._authenticationService.isLoggedIn() !== "") {
+			this.modify = false;
+
+		}
+	 
+	}
+
+	updateMedicament(medicament :any){
+		medicament =this.mediUpdate;
+		medicament.medicament = this.medic.medicament;	
+
+
+		const userSesion = this._locker.retrieve('user');
+		this.userSesion = userSesion;
+		this.user = this.userSesion.user;
+		medicament.user = this.user;
+
+			 this._medicamentService.onModifyMedicament(this.urlModify, medicament).subscribe(
+				 res => {
+					 this.getAllMedicaments();
+					 this.modify = true;
+					 this.search = true;
+					 
+				 })
+	}
+
+
 
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultSearchComponent } from './result-search.component';
+import { ListRecordComponent } from './list-record.component';
 
-describe('ResultSearchComponent', () => {
-  let component: ResultSearchComponent;
-  let fixture: ComponentFixture<ResultSearchComponent>;
+describe('ListRecordComponent', () => {
+  let component: ListRecordComponent;
+  let fixture: ComponentFixture<ListRecordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultSearchComponent ]
+      declarations: [ ListRecordComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResultSearchComponent);
+    fixture = TestBed.createComponent(ListRecordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

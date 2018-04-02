@@ -1,0 +1,36 @@
+<h1>Historial</h1>
+<mat-card *ngFor="let data of record; let i = index">
+  <mat-card-title>
+    <H4>Usario que realizo el cambio: {{data.user}}</H4>
+  </mat-card-title>
+ 
+  <mat-card>
+         <H1>Registro antiguo</H1>
+          <H2>Medicamento: {{data.recordOne[0].medicament}}</H2>
+          <h4>Categoria: {{data.recordOne[0].category}}</h4>
+          <h4>Volumen: {{data.recordOne[0].volumen}}</h4>
+          <h4>Cantidad: {{data.recordOne[0].quantity}}</h4>
+          <h4>Valor: {{data.recordOne[0].value}}</h4>
+          <h4>Caracteristicas: {{data.recordOne[0].characterist}}</h4>
+          <h4>Descripción: {{data.recordOne[0].description}}</h4>
+          <img src="{{ data.recordOne[0].photo}} " width="200" height="200">
+
+
+   
+  </mat-card> 
+  <mat-card >
+      
+     
+            <H1>Registro actual</H1>
+            <h4>Categoria: {{data.recordTwo[0].category}}</h4>
+            <h4>Volumen: {{data.recordTwo[0].volumen}}</h4>
+            <h4>Cantidad: {{data.recordTwo[0].quantity}}</h4>
+            <h4>Valor: {{data.recordTwo[0].value}}</h4>
+            <h4>Caracteristicas: {{data.recordTwo[0].characterist}}</h4>
+            <h4>Descripción: {{data.recordTwo[0].description}}</h4>
+            <img src="{{ data.recordTwo[0].photo}} " width="200" height="200">
+  
+  
+    </mat-card> 
+ </mat-card>
+    

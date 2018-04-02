@@ -25,10 +25,7 @@ export class AuthenticationService {
 		const user = this._locker.retrieve('user');
 		if (!!user) {
             this.user = user;
-            console.log(this.user);
-            
-            console.log(this.user.job);
-			this.hasSession = this.user.job;  
+        	this.hasSession = this.user.job;  
 		}
 		return this.hasSession;
 	}

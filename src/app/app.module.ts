@@ -67,14 +67,13 @@ import { HomeUserMessengerComponent } from './views/usuarioMensajero/home-user-m
 import { LoginUserMessengerComponent } from './views/common/login-user-messenger/login-user-messenger.component';
 import { ChangePassUserMessengerComponent } from './views/usuarioMensajero/change-pass-user-messenger/change-pass-user-messenger.component';
 import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-messenger.guard';
-import { ModifyMedicamentComponent } from './views/usuarioAdmin/modify-medicament/modify-medicament.component';
-import { ResultSearchComponent } from './views/usuarioAdmin/result-search/result-search.component';
 import { RegisterUserAdminComponent } from './views/usuarioAdmin/register-user-admin/register-user-admin.component';
 import { RegisterUserMessengerComponent } from './views/usuarioAdmin/register-user-messenger/register-user-messenger.component';
 import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/list-user-admin.component';
 import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messenger/list-user-messenger.component';
-
-
+import { ListRecordComponent } from './views/usuarioAdmin/list-record/list-record.component';
+import {recordService} from './services/record.service';
+import {purchaseService} from './services/purchase.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,12 +112,11 @@ import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messe
     HomeUserMessengerComponent,
     LoginUserMessengerComponent,
     ChangePassUserMessengerComponent,
-    ModifyMedicamentComponent,
-    ResultSearchComponent,
     RegisterUserAdminComponent,
     RegisterUserMessengerComponent,
     ListUserAdminComponent,
-    ListUserMessengerComponent
+    ListUserMessengerComponent,
+    ListRecordComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 
@@ -140,8 +138,8 @@ import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messe
   Ng2Webstorage
   ],
   providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
-    userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, 
-    ModifyMedicamentComponent, ResultSearchComponent],
+    userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, recordService,
+    purchaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
