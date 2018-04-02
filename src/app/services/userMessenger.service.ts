@@ -20,11 +20,11 @@ export class userMessengerService extends HttpService{
 		super(_http)
 	}
 
-	getAllclient() : Observable<Array<userMessenger>>{
+	getAllUserMessenger() : Observable<Array<userMessenger>>{
 		return this.get(this.url);
 	}
 
-	onSaveclient(userMessenger : userMessenger){
+	onSaveUserMessenger(userMessenger : userMessenger){
 		return this.post(this.url, userMessenger)				
 	}
 

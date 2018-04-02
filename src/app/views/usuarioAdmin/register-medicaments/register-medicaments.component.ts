@@ -12,7 +12,6 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 export class RegisterMedicamentsComponent implements OnInit {
 
   medicament = new medicament();
-  photos = new Array();
   options = [
 		{value: 'Niños', option: 'Niños'},
 		{value: 'Mamás', option: 'Mamás'},
@@ -26,26 +25,20 @@ export class RegisterMedicamentsComponent implements OnInit {
   ngOnInit() {
     
   }
-  addPhoto(photos : any){
+ /* addPhoto(photos : any){
     
     this.photos.push({"photo1" :photos });
     console.log(this.photos);
     this.medicament.photos ="";
   }
-
+*/
  saveMedicament(medicament: medicament) {
     medicament = this.medicament;
-    medicament.photos = this.photos;
+   // medicament.photos = this.photos;
       this._medicamentService.onSaveMedicament(medicament).subscribe(
         res => {
           this._router.navigate(['/listMedicament']);
         })
-    
-  
-   
-
-
-
 
   }   
 

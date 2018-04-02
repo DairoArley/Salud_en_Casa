@@ -6,6 +6,6 @@ export class medicament{
     public quantity : Number;
     public volumen : string;
     public value : string;
-    public photos : any;
+    public photo : string;
 }   
 

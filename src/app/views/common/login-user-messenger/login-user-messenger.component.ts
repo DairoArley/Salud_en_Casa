@@ -6,6 +6,7 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { SessionStorageService } from 'ngx-webstorage';
 import {Config} from '../../../config';
 
+
 @Component({
   selector: 'app-login-user-messenger',
   templateUrl: './login-user-messenger.component.html',
@@ -18,6 +19,7 @@ export class LoginUserMessengerComponent implements OnInit {
     private _router : Router, public _locker  :SessionStorageService) { }
 
   ngOnInit() {
+
   }
 
   onSingIn(user: User) {

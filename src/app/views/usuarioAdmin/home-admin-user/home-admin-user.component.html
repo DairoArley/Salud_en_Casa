@@ -2,8 +2,15 @@ ACA VA TODO LO BONITO QUE VE UN USUARIO ADMINISTRADOR AL INGRESAR: FOTOS, INFO D
 
 <div class="col-sm-12 col-md-6">
   Este es el menu.
-    <a href="/medicaments">Ver medicamentos</a>>
     <a href="/changePassUserAdmin">Cambiar contraseña</a>>
+    <a href="/listClient">Mostrar clientes</a>>
+    <a href="/listMedicament">Mostrar medicamentos</a>>
+    <a href="/registerMedicament">Registrar medicamentos</a>>
+    <a href="/registerUserAdmin">Registrar usuario administrador</a>>
+    <a href="/registerUserMessenger">Registrar usuario mensajero</a>>
+    <a href="/listUserAdmin">mostar usuarios administradores</a>>
+    <a href="/listUserMessenger">mostrar usuario mensajeros</a>>
+
     <li *ngIf="_authenticationServices.isLoggedIn() !== ''">
         <a href="/home" (click)="logout()">Salir</a>
  </li>

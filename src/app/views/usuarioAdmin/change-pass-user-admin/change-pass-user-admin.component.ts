@@ -17,7 +17,8 @@ import {Config} from '../../../config';
 export class ChangePassUserAdminComponent implements OnInit {
   url = Config.API_SERVER_CHANGEPASS_USERADMIN;
   changePass = new changePass();
-  constructor(public _authenticationService: AuthenticationService, public _userAdminService : userAdminService,
+  constructor(public _authenticationService: AuthenticationService, 
+    public _userAdminService : userAdminService,
     private _router : Router, public _locker  :SessionStorageService) { }
 
   ngOnInit() {

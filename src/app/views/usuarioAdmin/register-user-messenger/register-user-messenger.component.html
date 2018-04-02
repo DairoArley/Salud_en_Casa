@@ -1,0 +1,41 @@
+<titulo valor="Registrar usuarios mensajeros"></titulo>
+<form (ngSubmit)="registerUserMessenger(userMessengerForm);" #userMessengerForm="ngForm" class="example-form">
+
+    <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="email" [(ngModel)]="userMessenger.email" name="email" required>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Nombre" [(ngModel)]="userMessenger.name" name="name">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-sm-12 col-md-6">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Usuario" [(ngModel)]="userMessenger.user" name="user" required>
+    </mat-form-field>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Edad" [(ngModel)]="userMessenger.age" name="age">
+        </mat-form-field>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-12 col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Horas" [(ngModel)]="userMessenger.hours" name="hours">
+          </mat-form-field>
+        </div>
+    <div class="col-sm-12 col-md-6">
+      <button class="example-button-row" mat-button block>Registrar</button>
+    </div>
+  </div>
+</form>

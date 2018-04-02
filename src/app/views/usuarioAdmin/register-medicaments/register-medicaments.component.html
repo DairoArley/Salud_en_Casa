@@ -47,13 +47,10 @@
   <div class="row">
     <div class="col-sm-12 col-md-6">
       <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="Url de la foto" [(ngModel)]="medicament.photos" name="photos">
+        <input matInput type="text" placeholder="Url de la foto" [(ngModel)]="medicament.photo" name="photo">
       </mat-form-field>
     </div>
-    <button mat-button (click)="addPhoto(medicament.photos)">
-      <mat-icon>delete</mat-icon>
-      Agregar
-    </button>
+
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-6">

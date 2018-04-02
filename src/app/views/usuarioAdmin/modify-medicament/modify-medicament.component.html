@@ -1,0 +1,71 @@
+<titulo valor="Actualizar Medicamento"></titulo>
+
+<mat-card-title>
+  <H2>Medicamento a modificar: {{this.actualMedicament.medicament}}</H2>
+  <h3>Datos actuales del medicamento</h3>
+  <h4>Categoria: {{this.actualMedicament.category}}</h4>
+
+</mat-card-title>
+
+<form #medicamentForm="ngForm" class="example-form">
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6">
+      <mat-select placeholder="Tipo" [(ngModel)]="medicament.category" name="category">
+        <mat-option *ngFor="let data of options" [value]="data.value">
+          {{ data.option }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="caracteristicas" [(ngModel)]="medicament.characterist" name="lastName">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Cantidad" [(ngModel)]="medicament.quantity" name="quantity" required>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="volumen" [(ngModel)]="medicament.volumen" name="volumen">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="valor" [(ngModel)]="medicament.value" name="value" required>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Url de la foto" [(ngModel)]="medicament.photo" name="photo">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="descripcion" [(ngModel)]="medicament.description" name="description">
+      </mat-form-field>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <button class="example-button-row" mat-button block (click)="saveMedicament(medicamentForm)">Enviar</button>
+    </div>
+  </div>
+
+</form>

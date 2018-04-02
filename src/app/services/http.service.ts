@@ -23,6 +23,8 @@ export class HttpService {
     })
     const options = new RequestOptions({headers: headers});
     const body = JSON.stringify(params);
+    console.log(body);
+    
     return this._http.post(url, body, options).map(response => response.json());
   }
 

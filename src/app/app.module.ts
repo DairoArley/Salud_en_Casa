@@ -41,22 +41,22 @@ import { DescriptionRealTimeServicesComponent } from './views/superusercountry/d
 import { GenerateReportComponent } from './views/superusercountry/generate-report/generate-report.component';
 import { PendingServicesComponent } from './views/superusercountry/pending-services/pending-services.component';
 import { RealTimeServicesComponent } from './views/superusercountry/real-time-services/real-time-services.component';
-import { ListClientsComponent } from './views/cliente/list-clients/list-clients.component';
-import { RegisterClientsComponent } from './views/cliente/register-clients/register-clients.component';
-import { ListMedicamentsComponent } from './views/medicaments/list-medicaments/list-medicaments.component';
+import { ListClientsComponent } from './views/usuarioAdmin/list-clients/list-clients.component';
+import { RegisterClientsComponent } from './views/common/register-clients/register-clients.component';
+import { ListMedicamentsComponent } from './views/usuarioAdmin/list-medicaments/list-medicaments.component';
 
 
 import { clientService } from './services/client.service';
 import { HttpService } from './services/http.service';
 import { medicamentService } from './services/medicament.service';
-import { RegisterMedicamentsComponent } from './views/medicaments/register-medicaments/register-medicaments.component';
-import { LoginClientComponent } from './views/cliente/login-client/login-client.component';
+import { RegisterMedicamentsComponent } from './views/usuarioAdmin/register-medicaments/register-medicaments.component';
+import { LoginClientComponent } from './views/common/login-client/login-client.component';
 import { AuthenticationService } from './services/authentication.service';
 import { HomeClientComponent } from './views/cliente/home-client/home-client.component';
 import { ChangePassClientComponent } from './views/cliente/change-pass-client/change-pass-client.component';
 import { ListMedicamentsClientComponent } from './views/cliente/list-medicaments-client/list-medicaments-client.component';
 import { HomeComponent } from './views/common/home/home.component';
-import { LoginAdminUserComponent } from './views/usuarioAdmin/login-admin-user/login-admin-user.component';
+import { LoginAdminUserComponent } from './views/common/login-admin-user/login-admin-user.component';
 import { HomeAdminUserComponent } from './views/usuarioAdmin/home-admin-user/home-admin-user.component';
 import { ClientGuardGuard } from './views/cliente/client-guard.guard';
 import { ChangePassUserAdminComponent } from './views/usuarioAdmin/change-pass-user-admin/change-pass-user-admin.component';
@@ -64,9 +64,15 @@ import { userAdminService } from './services/userAdmin.service';
 import { GuardUserAdminGuard } from './views/usuarioAdmin/guard-user-admin.guard';
 import { userMessengerService } from './services/userMessenger.service';
 import { HomeUserMessengerComponent } from './views/usuarioMensajero/home-user-messenger/home-user-messenger.component';
-import { LoginUserMessengerComponent } from './views/usuarioMensajero/login-user-messenger/login-user-messenger.component';
+import { LoginUserMessengerComponent } from './views/common/login-user-messenger/login-user-messenger.component';
 import { ChangePassUserMessengerComponent } from './views/usuarioMensajero/change-pass-user-messenger/change-pass-user-messenger.component';
 import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-messenger.guard';
+import { ModifyMedicamentComponent } from './views/usuarioAdmin/modify-medicament/modify-medicament.component';
+import { ResultSearchComponent } from './views/usuarioAdmin/result-search/result-search.component';
+import { RegisterUserAdminComponent } from './views/usuarioAdmin/register-user-admin/register-user-admin.component';
+import { RegisterUserMessengerComponent } from './views/usuarioAdmin/register-user-messenger/register-user-messenger.component';
+import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/list-user-admin.component';
+import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messenger/list-user-messenger.component';
 
 
 @NgModule({
@@ -106,7 +112,13 @@ import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-mes
     ChangePassUserAdminComponent,
     HomeUserMessengerComponent,
     LoginUserMessengerComponent,
-    ChangePassUserMessengerComponent
+    ChangePassUserMessengerComponent,
+    ModifyMedicamentComponent,
+    ResultSearchComponent,
+    RegisterUserAdminComponent,
+    RegisterUserMessengerComponent,
+    ListUserAdminComponent,
+    ListUserMessengerComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 
@@ -128,7 +140,8 @@ import { GuardUserMessengerGuard } from './views/usuarioMensajero/guard-user-mes
   Ng2Webstorage
   ],
   providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
-    userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard],
+    userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, 
+    ModifyMedicamentComponent, ResultSearchComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

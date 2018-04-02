@@ -31,4 +31,12 @@ export class medicamentService extends HttpService{
 		const url = Config.API_SERVER_MEDICAMENT+"/"+medicament.medicament;
             return this.delete(url);			
 	}
+
+	onModifyMedicament(url, medicament :medicament){
+	  return this.post(url, medicament);			
+	} 
+
+	onFindByName(url, medicament :medicament){
+		return this.post(url, medicament);			
+	  } 
 }   

@@ -8,5 +8,8 @@ export const Config = {
     API_SERVER_USERADMIN: 'http://localhost:8080/v1/adminUser',
     API_SERVER_USERMESSENGER: 'http://localhost:8080/v1/messengerUser',
     API_SERVER_CHANGEPASS_USERMESSENGER: 'http://localhost:8080/v1/changePassMessenger',
-    API_SERVER_SINGIN_USERMESSENGER: 'http://localhost:8080/v1/messengerUserSingIn'
+    API_SERVER_SINGIN_USERMESSENGER: 'http://localhost:8080/v1/messengerUserSingIn',
+    API_SERVER_MODIFY_MEDICAMENT: 'http://localhost:8080/v1/updateMedicament',
+    API_SERVER_FINDBYNAME: 'http://localhost:8080/v1/medicamentByName'
 };
+

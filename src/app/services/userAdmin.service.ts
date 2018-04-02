@@ -20,11 +20,11 @@ export class userAdminService extends HttpService{
 		super(_http)
 	}
 
-	getAllclient() : Observable<Array<userAdmin>>{
+	getAllUserAdmin() : Observable<Array<userAdmin>>{
 		return this.get(this.url);
 	}
 
-	onSaveclient(userAdmin : userAdmin){
+	onSaveUserAdmin(userAdmin : userAdmin){
 		return this.post(this.url, userAdmin)				
 	}
 
