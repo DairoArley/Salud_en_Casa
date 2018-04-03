@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>SaludEnCasa</title>
     <base href="/">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,8 +13,25 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css">
     
   </head>
-<body class="container">
-  <app-root></app-root>
-  <footer></footer>
+  <body class="container">
+    <div class="hero-image">
+        <div class="hero-text">
+          <h1>Salud en Casa</h1>
+        </div>
+      </div>
+      <div id="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="container">
+          <app-root></app-root>
+          <footer>
+            Salud en Casa. Copyright® 2018
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+          </footer>
+      </div>
+  
 </body>
 </html>
