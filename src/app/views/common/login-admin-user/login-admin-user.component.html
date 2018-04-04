@@ -1,21 +1,30 @@
-<titulo valor="Iniciar sesión"></titulo>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Iniciar sesión administrador</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <p class="texto-interna">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium, sem at lacinia blandit, ex ipsum blandit arcu, eu fermentum metus magna nec velit. Donec pretium lacus vitae magna malesuada, quis porttitor metus gravida. Morbi congue auctor bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      </div>
+    </div>
 <form (ngSubmit)="onSingIn(singInForm);" #singInForm="ngForm" class="example-form">
   <div class="row">
     <div class="col-md-6">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="usuario" [(ngModel)]="user.user" name="user" required>
+        <input matInput placeholder="Usuario" [(ngModel)]="user.user" name="user" required>
       </mat-form-field>
     </div>
     <div class="col-md-6">
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="contraseña" type="password" [(ngModel)]="user.password" name="password" required>
+        <input matInput placeholder="Contraseña" type="password" [(ngModel)]="user.password" name="password" required>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <button class="example-button-row" [disabled]="!singInForm.form.valid" mat-button block>Iniciar sesion</button>
+      <button class="example-button-row" [disabled]="!singInForm.form.valid" mat-button block>Iniciar sesión</button>
     </div>
   </div>
 </form>

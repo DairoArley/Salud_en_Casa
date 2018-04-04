@@ -1,10 +1,19 @@
-<titulo valor="Registrar de clientes"></titulo>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Registrar clientes</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <p class="texto-interna">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium, sem at lacinia blandit, ex ipsum blandit arcu, eu fermentum metus magna nec velit. Donec pretium lacus vitae magna malesuada, quis porttitor metus gravida. Morbi congue auctor bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      </div>
+    </div>
 <form (ngSubmit)="registerClient(clientForm);" #clientForm="ngForm" class="example-form">
 
   <div class="row">
     <div class="col-sm-12 col-md-6">
       <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="email" [(ngModel)]="client.email" name="email" required>
+        <input matInput type="text" placeholder="Email" [(ngModel)]="client.email" name="email" required>
       </mat-form-field>
     </div>
     <div class="col-sm-12 col-md-6">

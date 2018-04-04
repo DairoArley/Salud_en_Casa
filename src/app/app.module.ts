@@ -18,6 +18,7 @@ import{
   MatSelectModule
 } from '@angular/material';
 import {Ng2Webstorage} from 'ngx-webstorage';
+import { HttpClientModule} from '@angular/common/http';
 
 import {Router} from './routes'
 import { AppComponent } from './app.component';
@@ -74,6 +75,7 @@ import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messe
 import { ListRecordComponent } from './views/usuarioAdmin/list-record/list-record.component';
 import {recordService} from './services/record.service';
 import {purchaseService} from './services/purchase.service';
+import { MainNavigationComponent } from './common/navigation/main-navigation/main-navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,7 +118,8 @@ import {purchaseService} from './services/purchase.service';
     RegisterUserMessengerComponent,
     ListUserAdminComponent,
     ListUserMessengerComponent,
-    ListRecordComponent
+    ListRecordComponent,
+    MainNavigationComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 
@@ -135,12 +138,13 @@ import {purchaseService} from './services/purchase.service';
 	MatToolbarModule,
   MatIconModule	, 
   MatSelectModule,
-  Ng2Webstorage
+  Ng2Webstorage,
+  HttpClientModule
   ],
   providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
     userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, recordService,
     purchaseService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, MainNavigationComponent]
 })
 export class AppModule { }
 
