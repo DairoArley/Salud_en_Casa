@@ -24,7 +24,9 @@ export class ListMedicamentsClientComponent implements OnInit {
 	urlName = Config.API_SERVER_FINDBYNAME;
   urlPurchase = Config.API_SERVER_PURCHASE;
 	urlCat = Config.API_SERVER_FINDBYCATEGORY;
-	search = true;
+	search = false;
+	info = false;
+	home = true;
 	userSesion;
 	user;
 
@@ -51,7 +53,9 @@ export class ListMedicamentsClientComponent implements OnInit {
 		this._medicamentService.getAllmedicaments().subscribe(
 			(data: medicament[]) => {
 				this.medicament = data;
-				this.search = true;
+				this.search = false;
+				this.info = false;
+				this.home = true;
 
 			},
 			err => {
@@ -70,8 +74,9 @@ export class ListMedicamentsClientComponent implements OnInit {
 			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
 			    (data: medicament[]) => {
 				this.medicament = data;
-	  
-				this.search = false;
+				this.search  =true;
+				this.home = false;
+				this.info = false;
 			  },
 			  err => {
 				console.log(err);
@@ -81,7 +86,7 @@ export class ListMedicamentsClientComponent implements OnInit {
 				//console.log(this.implement);
 			  }
 			);
-		  }
+			}
 	}
 
 	FindByCat(medicament: medicament) {
@@ -90,8 +95,9 @@ export class ListMedicamentsClientComponent implements OnInit {
 			this._medicamentService.onFindByCat(this.urlCat, medicament).subscribe(
 			    (data: medicament[]) => {
 				this.medicament = data;
-	  
-				this.search = false;
+				this.search  =true;
+				this.home = false;
+				this.info = false;
 			  },
 			  err => {
 				console.log(err);
@@ -101,16 +107,16 @@ export class ListMedicamentsClientComponent implements OnInit {
 				//console.log(this.implement);
 			  }
 			);
-		  }
+			}
 	}
 
 
   
   addMedicament(medicament : medicament){ 
-    this.search =true;
-    this.med.push(medicament);
+    this.info = true;
  
-  }
+	}
+	
   buyMedicament(){
     const userSesion = this._locker.retrieve('user');
 		this.userSesion = userSesion;
@@ -127,8 +133,52 @@ export class ListMedicamentsClientComponent implements OnInit {
       
 		}
 
-  }
-  
+	}
+	back(){
+		this.ngOnInit();
+	}
+  showInfoSearch(medicament : medicament){
+		if (this._authenticationService.isLoggedIn() !== "") {
+			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
+			    (data: medicament[]) => {
+				this.medicament = data;
+				this.search  =false;
+				this.home = false;
+				this.info = true;
+			  },
+			  err => {
+				console.log(err);
+			  },
+			  () => {
+				//console.log('finished!');
+				//console.log(this.implement);
+			  }
+			);
+			}
+	
+	
+	}
+
+	showInfoHome(medicament : medicament){
+
+		if (this._authenticationService.isLoggedIn() !== "") {
+			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
+			    (data: medicament[]) => {
+				this.medicament = data;
+				this.search  =false;
+				this.home = false;
+				this.info = true;
+			  },
+			  err => {
+				console.log(err);
+			  },
+			  () => {
+				//console.log('finished!');
+				//console.log(this.implement);
+			  }
+			);
+			}
+	}
 
 
 }

@@ -30,7 +30,7 @@ constructor(private _clientService: clientService,
 
       this._clientService.onSaveclient(cli).subscribe(
         res => {
-          this._router.navigate(['/change-password']);
+          this._router.navigate(['/changePassClient']);
         })
     
   }   
