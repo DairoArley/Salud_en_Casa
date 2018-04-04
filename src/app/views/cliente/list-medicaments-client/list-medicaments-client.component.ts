@@ -18,8 +18,9 @@ import { purchaseService } from '../../../services/purchase.service';
 })
 export class ListMedicamentsClientComponent implements OnInit {
   medicament: Array<medicament>;
-  med: Array<medicament>;
-  med1 = new purchase;;
+	med: Array<medicament>;
+	medicamento = new Array() 
+  med1 = new purchase;
   medicamentPurchse = new medicament();
 	urlName = Config.API_SERVER_FINDBYNAME;
   urlPurchase = Config.API_SERVER_PURCHASE;
@@ -27,6 +28,7 @@ export class ListMedicamentsClientComponent implements OnInit {
 	search = false;
 	info = false;
 	home = true;
+	buy = false;
 	userSesion;
 	user;
 
@@ -113,8 +115,13 @@ export class ListMedicamentsClientComponent implements OnInit {
 
   
   addMedicament(medicament : medicament){ 
-    this.info = true;
- 
+		this.medicamento.push(medicament)
+		console.log("Medicamento añadido");
+		
+		this.ngOnInit();
+		console.log(this.medicamento);
+		
+		
 	}
 	
   buyMedicament(){
@@ -134,6 +141,7 @@ export class ListMedicamentsClientComponent implements OnInit {
 		}
 
 	}
+
 	back(){
 		this.ngOnInit();
 	}
@@ -160,7 +168,8 @@ export class ListMedicamentsClientComponent implements OnInit {
 	}
 
 	showInfoHome(medicament : medicament){
-
+		console.log("entre");
+		
 		if (this._authenticationService.isLoggedIn() !== "") {
 			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
 			    (data: medicament[]) => {
@@ -178,6 +187,32 @@ export class ListMedicamentsClientComponent implements OnInit {
 			  }
 			);
 			}
+	}
+
+	showProducts(){
+		let i = 0;
+		while(1>this.medicamento.length){
+			if (this._authenticationService.isLoggedIn() !== "") {
+				this._medicamentService.onFindByName(this.urlName, this.medicamento[i]).subscribe(
+						(data: medicament[]) => {
+					this.medicament = data;
+					this.search  =false;
+					this.home = false;
+					this.info = false;
+					this.buy = true;
+					},
+					err => {
+					console.log(err);
+					},
+					() => {
+					//console.log('finished!');
+					//console.log(this.implement);
+					}
+				);
+				}
+			i = i +1;
+		}
+		
 	}
 
 

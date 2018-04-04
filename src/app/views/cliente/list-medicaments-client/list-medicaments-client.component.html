@@ -81,6 +81,14 @@
               </mat-card-actions>
       
           </mat-card>
+          <mat-card-actions>
+              <button mat-button (click)="showProducts()">
+                <mat-icon>shopping_basket</mat-icon>
+                Ver canasta con productos
+              </button>
+            
+      
+            </mat-card-actions>
   
         </div>
 
@@ -109,7 +117,7 @@
           
       
           <mat-card-actions>
-              <button mat-button (click)="showInfo(data)">
+              <button mat-button (click)="addMedicament(data)">
                 <mat-icon>shopping_cart
                   </mat-icon>
                 Añadir al carrito
@@ -120,4 +128,41 @@
       
       
         </mat-card>
+  </div>
+
+  <div *ngIf="buy">
+    <h1>Productos</h1>
+      
+          <mat-card-actions>
+              <button mat-button (click)="back()">
+                <mat-icon>keyboard_backspace</mat-icon>
+                atras
+              </button>
+            
+      
+            </mat-card-actions>
+            <mat-card *ngFor="let data of medicamento; let j = index">
+                <mat-card-title>
+                    <H4>Medicamento: {{data.medicament}}</H4>
+                    <h4>Categoria: {{data.category}}</h4>
+                    <h4>Descripción: {{data.description}}</h4>
+                    <h4>Caracteristicas: {{data.characterist}}</h4>
+                    <h4>Cantidad: {{data.quantity}}</h4>
+                    <h4>Volumen: {{data.volumen}}</h4>
+                    <h4>Costo: {{data.value}}</h4>
+                  <img src="{{ data.photo}} " width="200" height="200">
+                </mat-card-title>
+  
+   
+      
+      
+        </mat-card>
+        <mat-card-actions>
+            <button mat-button (click)="buyMedicament(data)">
+              <mat-icon>shop</mat-icon>
+              Comprar
+            </button>
+          
+    
+          </mat-card-actions>
   </div>
