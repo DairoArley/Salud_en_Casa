@@ -15,13 +15,16 @@ import { Config } from '../../../config';
 	styleUrls: ['./list-medicaments.component.css']
 })
 export class ListMedicamentsComponent implements OnInit {
+
 	medicament: Array<medicament>;
 	urlName = Config.API_SERVER_FINDBYNAME;
 	urlModify = Config.API_SERVER_MODIFY_MEDICAMENT;
 
 	urlCat = Config.API_SERVER_FINDBYCATEGORY;
-	search = true;
-	modify = true;
+	search = false;
+	modify = false;
+	home = true;
+
 	userSesion;
 	user;
 
@@ -41,13 +44,19 @@ export class ListMedicamentsComponent implements OnInit {
 		public _authenticationService: AuthenticationService) { }
 
 	ngOnInit() {
+		this.search = false;
+		this.modify = false;
+		this.home = true;
 		this.getAllMedicaments();
 	}
+
 	getAllMedicaments() {
 		this._medicamentService.getAllmedicaments().subscribe(
 			(data: medicament[]) => {
 				this.medicament = data;
-				this.search = true;
+				this.search = false;
+				this.modify = false;
+				this.home = true;
 
 			},
 			err => {
@@ -78,7 +87,9 @@ export class ListMedicamentsComponent implements OnInit {
 			    (data: medicament[]) => {
 				this.medicament = data;
 	  
-				this.search = false;
+				this.search = true;
+				this.modify = false;
+				this.home = false;
 			  },
 			  err => {
 				console.log(err);
@@ -97,8 +108,10 @@ export class ListMedicamentsComponent implements OnInit {
 			this._medicamentService.onFindByCat(this.urlCat, medicament).subscribe(
 			    (data: medicament[]) => {
 				this.medicament = data;
-	  
-				this.search = false;
+				this.search = true;
+				this.modify = false;
+				this.home = false;
+				
 			  },
 			  err => {
 				console.log(err);
@@ -112,12 +125,10 @@ export class ListMedicamentsComponent implements OnInit {
 	}
 
 	ModifyMedicament(medicament :medicament){
-		this.search = true;
+		this.modify = true;
+		this.home = false;
+		this.search = false;
 	  this.medic = medicament;
-		if (this._authenticationService.isLoggedIn() !== "") {
-			this.modify = false;
-
-		}
 	 
 	}
 
@@ -134,12 +145,18 @@ export class ListMedicamentsComponent implements OnInit {
 			 this._medicamentService.onModifyMedicament(this.urlModify, medicament).subscribe(
 				 res => {
 					 this.getAllMedicaments();
-					 this.modify = true;
-					 this.search = true;
+					 this.modify = false;
+					 this.search = false;
 					 
 				 })
 	}
 
+	back(){
+		this.search = false;
+		this.modify = false;
+		this.home = true;
+		this.ngOnInit();
+	}
 
 
 }

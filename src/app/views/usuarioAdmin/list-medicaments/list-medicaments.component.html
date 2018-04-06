@@ -1,60 +1,110 @@
-<div *ngIf="modify; else elseBlock1">
-  <div *ngIf="search; else elseBlock">
+<div *ngIf="home">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="titulo-interna">Medicamentos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="texto-interna">A continuación podrás buscar el medicamento que necesitas, por nombre o tipo según tu necesidad.</p>
+    </div>
+  </div>
+  <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form">
     <div class="row">
-      <div class="col-md-12">
-          <h1 class="titulo-interna">Medicamentos</h1>
+      <div class="col-sm-12 col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Buscar medicamento por nombre" [(ngModel)]="medi.medicament" name="medicament">
+        </mat-form-field>
       </div>
-    </div> 
-    <div class="row">
-      <div class="col-md-12">
-          <p class="texto-interna">A continuación podrás buscar el medicamento que necesitas, por nombre o tipo según tu necesidad.</p>
+      <div class="col-sm-12 col-md-6">
+        <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
       </div>
     </div>
-    <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Buscar medicamento por nombre" [(ngModel)]="medi.medicament" name="medicament">
-          </mat-form-field>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
-        </div>
-      </div>
-    </form>
+  </form>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <form (ngSubmit)="FindByCat(findByCatForm);" #findByCatForm="ngForm" class="example-form">
     <div class="row">
-      <div class="col-md-12">
-        &nbsp;
+      <div class="col-sm-12 col-md-6">
+        <mat-select placeholder="Tipo de medicamento" [(ngModel)]="medi.category" name="category">
+          <mat-option *ngFor="let data of options" [value]="data.value">
+            {{ data.option }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
       </div>
     </div>
-    <form (ngSubmit)="FindByCat(findByCatForm);" #findByCatForm="ngForm" class="example-form">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <mat-select placeholder="Tipo de medicamento" [(ngModel)]="medi.category" name="category">
-            <mat-option *ngFor="let data of options" [value]="data.value">
-              {{ data.option }}
-            </mat-option>
-          </mat-select>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
-        </div>
-      </div>
-    </form>
+  </form>
 
 
-    <mat-card *ngFor="let data of medicament; let j = index">
-      <mat-card-title>
-        <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
-        <p> <strong>Categoria:</strong> {{data.category}}</p> 
-        <p> <strong>Descripción: </strong>{{data.description}}</p> 
-        <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
-        <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
-        <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
-        <p> <strong>Costo: </strong>{{data.value}}</p> 
+  <mat-card *ngFor="let data of medicament; let j = index">
+    <mat-card-title>
+      <p>
+        <strong>Medicamento: </strong>{{data.medicament}}</p>
+      <p>
+        <strong>Categoria:</strong> {{data.category}}</p>
+      <p>
+        <strong>Descripción: </strong>{{data.description}}</p>
+      <p>
+        <strong>Caracteristicas:</strong> {{data.characterist}}</p>
+      <p>
+        <strong>Cantidad:</strong> {{data.quantity}}</p>
+      <p>
+        <strong>Volumen: </strong>{{data.volumen}}</p>
+      <p>
+        <strong>Costo: </strong>{{data.value}}</p>
       <img src="{{ data.photo}} " width="200" height="200">
     </mat-card-title>
 
+    <mat-card-actions>
+      <button mat-button (click)="DeleteMedicament(data)">
+        <mat-icon>delete</mat-icon>
+        Eliminar
+      </button>
+      <button mat-button (click)="ModifyMedicament(data)">
+        <mat-icon>cached</mat-icon>
+        Modificar
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
+
+<div *ngIf="search">
+    <mat-card-actions>
+      <button mat-button (click)="back()">
+        <mat-icon>keyboard_backspace</mat-icon>
+        atras
+      </button>
+  
+  
+    </mat-card-actions>
+    <mat-card *ngFor="let data of medicament; let j = index">
+      <mat-card-title>
+        <p>
+          <strong>Medicamento: </strong>{{data.medicament}}</p>
+        <p>
+          <strong>Categoria:</strong> {{data.category}}</p>
+        <p>
+          <strong>Descripción: </strong>{{data.description}}</p>
+        <p>
+          <strong>Caracteristicas:</strong> {{data.characterist}}</p>
+        <p>
+          <strong>Cantidad:</strong> {{data.quantity}}</p>
+        <p>
+          <strong>Volumen: </strong>{{data.volumen}}</p>
+        <p>
+          <strong>Costo: </strong>{{data.value}}</p>
+        <img src="{{ data.photo}} " width="200" height="200">
+      </mat-card-title>
+  
       <mat-card-actions>
         <button mat-button (click)="DeleteMedicament(data)">
           <mat-icon>delete</mat-icon>
@@ -64,51 +114,40 @@
           <mat-icon>cached</mat-icon>
           Modificar
         </button>
-
+  
       </mat-card-actions>
-
+  
     </mat-card>
+  
   </div>
-</div>
-
-<ng-template #elseBlock>
-  <mat-card *ngFor="let data of medicament; let j = index">
-    <mat-card-title>
-      <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
-      <p> <strong>Categoria:</strong> {{data.category}}</p> 
-      <p> <strong>Descripción: </strong>{{data.description}}</p> 
-      <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
-      <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
-      <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
-      <p> <strong>Costo: </strong>{{data.value}}</p> 
-    <img src="{{ data.photo}} " width="200" height="200">
-  </mat-card-title>
-
-    <mat-card-actions>
-      <button mat-button (click)="DeleteMedicament(data)">
-        <mat-icon>delete</mat-icon>
-        Eliminar
-      </button>
-     
-
-    </mat-card-actions>
-
-  </mat-card>
-
-</ng-template>
 
 
-<ng-template #elseBlock1>
+<div *ngIf="modify">
+  <mat-card-actions>
+    <button mat-button (click)="back()">
+      <mat-icon>keyboard_backspace</mat-icon>
+      atras
+    </button>
+
+
+  </mat-card-actions>
   <mat-card-title>
     <titulo valor="Actualizar Medicamento"></titulo>
-    <h3><strong> Medicamento a modificar: </strong>{{this.medic.medicament}}</h3>
+    <h3>
+      <strong> Medicamento a modificar: </strong>{{this.medic.medicament}}</h3>
     <h2> Datos actuales del medicamento</h2>
-    <p> <strong>Categoria:</strong> {{this.medic.category}}</p>
-    <p> <strong>Volumen: </strong>{{this.medic.volumen}}</p>
-    <p> <strong>Cantidad: </strong>{{this.medic.quantity}}</p>
-    <p> <strong>Valor:</strong> {{this.medic.value}}</p>
-    <p> <strong>Caracteristicas:</strong> {{this.medic.characterist}}</p>
-    <p> <strong>Descripción: </strong> {{this.medic.description}}</p>
+    <p>
+      <strong>Categoria:</strong> {{this.medic.category}}</p>
+    <p>
+      <strong>Volumen: </strong>{{this.medic.volumen}}</p>
+    <p>
+      <strong>Cantidad: </strong>{{this.medic.quantity}}</p>
+    <p>
+      <strong>Valor:</strong> {{this.medic.value}}</p>
+    <p>
+      <strong>Caracteristicas:</strong> {{this.medic.characterist}}</p>
+    <p>
+      <strong>Descripción: </strong> {{this.medic.description}}</p>
     <img src="{{ this.medic.photo}} " width="200" height="200">
 
 
@@ -178,4 +217,4 @@
     </div>
   </form>
 
-</ng-template>
+</div>
