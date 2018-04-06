@@ -77,6 +77,7 @@ import {recordService} from './services/record.service';
 import {purchaseService} from './services/purchase.service';
 import { MainNavigationComponent } from './common/navigation/main-navigation/main-navigation.component';
 import { CreditTarjetComponent } from './views/cliente/credit-tarjet/credit-tarjet.component';
+import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/list-purchase.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,7 +122,8 @@ import { CreditTarjetComponent } from './views/cliente/credit-tarjet/credit-tarj
     ListUserMessengerComponent,
     ListRecordComponent,
     MainNavigationComponent,
-    CreditTarjetComponent
+    CreditTarjetComponent,
+    ListPurchaseComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 

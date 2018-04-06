@@ -1,0 +1,16 @@
+        
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Compras</h1>
+    </div>
+  </div>
+    <mat-card *ngFor = "let data of purchase">
+        <mat-card-header>
+        <mat-card-title>
+          <p> <strong>Usuario: </strong>{{data.nameUser}}</p> 
+          <p> <strong>Costo total: </strong>{{data.medicaments[0]}}</p>
+          <p> <strong>Costo total: </strong>{{data.value}}</p> 
+          
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card>   

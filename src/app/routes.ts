@@ -46,6 +46,7 @@ import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messe
 import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/list-user-admin.component';
 import {ListRecordComponent} from './views/usuarioAdmin/list-record/list-record.component';
 import {CreditTarjetComponent} from './views/cliente/credit-tarjet/credit-tarjet.component';
+import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/list-purchase.component';
 
 export const Router: Routes = [
 
@@ -63,25 +64,26 @@ export const Router: Routes = [
 //{ path: 'real-time-service-description', component: DescriptionRealTimeServicesComponent},
 //{ path: 'real-time-services', component: RealTimeServicesComponent},
 //{ path: 'generate-report', component: GenerateReportComponent},
-{ path: 'listClient', component: ListClientsComponent/*, canActivate:[GuardUserAdminGuard]*/},
+{ path: 'listClient', component: ListClientsComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'registerClient', component: RegisterClientsComponent},
-{ path: 'listMedicament', component: ListMedicamentsComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'registerMedicament', component: RegisterMedicamentsComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'homeClient', component: HomeClientComponent/*, canActivate: [ClientGuardGuard]*/},
-{ path: 'changePassClient', component: ChangePassClientComponent/*, canActivate: [ClientGuardGuard]*/},
-{ path: 'medicaments', component: ListMedicamentsClientComponent/*,  canActivate: [ClientGuardGuard]*/},
+{ path: 'listMedicament', component: ListMedicamentsComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'registerMedicament', component: RegisterMedicamentsComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'homeClient', component: HomeClientComponent, canActivate: [ClientGuardGuard]},
+{ path: 'changePassClient', component: ChangePassClientComponent, canActivate: [ClientGuardGuard]},
+{ path: 'medicaments', component: ListMedicamentsClientComponent,  canActivate: [ClientGuardGuard]},
 { path: 'loginAdminUser', component: LoginAdminUserComponent },
-{ path: 'homeAdminUser', component: HomeAdminUserComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'changePassUserAdmin', component: ChangePassUserAdminComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'homeUserMessenger', component: HomeUserMessengerComponent/*, canActivate:[GuardUserMessengerGuard]*/},
+{ path: 'homeAdminUser', component: HomeAdminUserComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'changePassUserAdmin', component: ChangePassUserAdminComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'homeUserMessenger', component: HomeUserMessengerComponent, canActivate:[GuardUserMessengerGuard]},
 { path: 'loginUserMessenger', component: LoginUserMessengerComponent},
-{ path: 'changePassUserMessenger', component: ChangePassUserMessengerComponent/*, canActivate:[GuardUserMessengerGuard]*/},
-{ path: 'registerUserAdmin', component : RegisterUserAdminComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'registerUserMessenger', component : RegisterUserMessengerComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'listUserAdmin', component : ListUserAdminComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'listUserMessenger', component : ListUserMessengerComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'listRecord', component : ListRecordComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'payment', component : CreditTarjetComponent/*, canActivate:[ClientGuardGuard]*/}
+{ path: 'changePassUserMessenger', component: ChangePassUserMessengerComponent, canActivate:[GuardUserMessengerGuard]},
+{ path: 'registerUserAdmin', component : RegisterUserAdminComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'registerUserMessenger', component : RegisterUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'listUserAdmin', component : ListUserAdminComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'listUserMessenger', component : ListUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'listRecord', component : ListRecordComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'payment', component : CreditTarjetComponent, canActivate:[ClientGuardGuard]},
+{ path: 'listPurchase', component : ListPurchaseComponent, canActivate:[GuardUserMessengerGuard]}
 ]
 
 
