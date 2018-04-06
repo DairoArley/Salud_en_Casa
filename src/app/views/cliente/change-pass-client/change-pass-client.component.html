@@ -1,15 +1,25 @@
-<titulo valor="Cambiar contraseña"></titulo>
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Cambiar contraseña</h1>
+  </div>
+</div> 
+<div class="row">
+  <div class="col-md-12">
+      <p class="texto-interna">Ingresa tu nueva contraseña, esta te servirá para iniciar sesión de ahora en adelante.</p>
+  </div>
+</div>
+
 <form (ngSubmit)="changePassword(changePassForm);" #changePassForm="ngForm" class="example-form">
     <div class="row">
       <div class="col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="usuario" [(ngModel)]="changePass.user" name="user" required>
+          <input matInput placeholder="Usuario" [(ngModel)]="changePass.user" name="user" required>
         </mat-form-field>
       </div>
       <div class="col-md-6">
   
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="contraseña actual" type="password" [(ngModel)]="changePass.actualPass" name="actualPass" required>
+          <input matInput placeholder="Contraseña actual" type="password" [(ngModel)]="changePass.actualPass" name="actualPass" required>
         </mat-form-field>
       </div>
     </div>
@@ -17,11 +27,11 @@
         <div class="col-md-6">
   
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="contraseña nueva" type="password" [(ngModel)]="changePass.newPass" name="newPass" required>
+              <input matInput placeholder="Nueva contraseña" type="password" [(ngModel)]="changePass.newPass" name="newPass" required>
             </mat-form-field>
           </div>
       <div class="col-md-6">
-        <button class="example-button-row" [disabled]="!changePassForm.form.valid" mat-button block>Iniciar sesion</button>
+        <button class="example-button-row" [disabled]="!changePassForm.form.valid" mat-button block>Cambiar</button>
       </div>
     </div>
 </form>

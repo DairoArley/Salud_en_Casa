@@ -49,6 +49,8 @@ body, html {
 .texto-interna{
     font-family: 'Lato', sans-serif;
     color: #545454;
+    margin: 20px 0;
+    font-size: 16px !important;  
 }
 .hero-text h1{
     font-family: 'Lato', sans-serif;
@@ -107,4 +109,7 @@ footer{
   }
   .container{
       padding-top: 50px;
+  }
+  .mat-form-field{
+      display: inherit !important;
   }

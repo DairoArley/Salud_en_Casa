@@ -1,10 +1,19 @@
-<titulo valor="Registrar usuarios mensajeros"></titulo>
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Registrar administradores</h1>
+  </div>
+</div> 
+<div class="row">
+  <div class="col-md-12">
+    <p class="texto-interna">Ingresa a continuación los campos requeridos y presiona el botón "Enviar", recuerda tener a la mano la cuenta de correo electrónico del usuario que vas a ingresar, allí será enviada una contraseña asignada por el sistema para que este ingrese. Una vez sea enviada, el sistema solicitará que la cambie, una vez finalizado este proceso esta persona podrá hacer uso de nuestros servicios.</p>
+  </div>
+</div>
 <form (ngSubmit)="registerUserMessenger(userMessengerForm);" #userMessengerForm="ngForm" class="example-form">
 
     <div class="row">
     <div class="col-sm-12 col-md-6">
       <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="email" [(ngModel)]="userMessenger.email" name="email" required>
+        <input matInput type="text" placeholder="Email" [(ngModel)]="userMessenger.email" name="email" required>
       </mat-form-field>
     </div>
     <div class="col-sm-12 col-md-6">

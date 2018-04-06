@@ -1,0 +1,21 @@
+.contenedor-imagen{
+    text-align: center;
+    width: 100%;
+}
+
+.contenedor-imagen a img{
+    display: inline-block;
+    margin-bottom: 15px;
+    max-width: 230px;
+    height: auto;
+    width: 70%;
+}
+.contenedor-imagen a img:hover{
+    opacity: 0.8;
+}
+.contenedor-imagen p{
+    text-align: center;
+    font-size: 14px;
+    color: #545454;
+    font-weight: bold;
+}

@@ -1,11 +1,20 @@
 <div *ngIf="modify; else elseBlock1">
   <div *ngIf="search; else elseBlock">
-    <h1>Medicamentos</h1>
+    <div class="row">
+      <div class="col-md-12">
+          <h1 class="titulo-interna">Medicamentos</h1>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-md-12">
+          <p class="texto-interna">A continuación podrás buscar el medicamento que necesitas, por nombre o tipo según tu necesidad.</p>
+      </div>
+    </div>
     <form (ngSubmit)="FindByMed(findByMedForm);" #findByMedForm="ngForm" class="example-form">
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="buscar por medicamento" [(ngModel)]="medi.medicament" name="medicament">
+            <input matInput type="text" placeholder="Buscar medicamento por nombre" [(ngModel)]="medi.medicament" name="medicament">
           </mat-form-field>
         </div>
         <div class="col-sm-12 col-md-6">
@@ -13,10 +22,15 @@
         </div>
       </div>
     </form>
+    <div class="row">
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+    </div>
     <form (ngSubmit)="FindByCat(findByCatForm);" #findByCatForm="ngForm" class="example-form">
       <div class="row">
         <div class="col-sm-12 col-md-6">
-          <mat-select placeholder="Tipo" [(ngModel)]="medi.category" name="category">
+          <mat-select placeholder="Tipo de medicamento" [(ngModel)]="medi.category" name="category">
             <mat-option *ngFor="let data of options" [value]="data.value">
               {{ data.option }}
             </mat-option>
@@ -31,15 +45,15 @@
 
     <mat-card *ngFor="let data of medicament; let j = index">
       <mat-card-title>
-        <H4>Medicamento: {{data.medicament}}</H4>
-        <h4>Categoria: {{data.category}}</h4>
-        <h4>Descripción: {{data.description}}</h4>
-        <h4>Caracteristicas: {{data.characterist}}</h4>
-        <h4>Cantidad: {{data.quantity}}</h4>
-        <h4>Valumen: {{data.volumen}}</h4>
-        <h4>Costo: {{data.value}}</h4>
-        <img src="{{ data.photo}} " width="200" height="200">
-      </mat-card-title>
+        <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+        <p> <strong>Categoria:</strong> {{data.category}}</p> 
+        <p> <strong>Descripción: </strong>{{data.description}}</p> 
+        <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
+        <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
+        <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
+        <p> <strong>Costo: </strong>{{data.value}}</p> 
+      <img src="{{ data.photo}} " width="200" height="200">
+    </mat-card-title>
 
       <mat-card-actions>
         <button mat-button (click)="DeleteMedicament(data)">
@@ -60,15 +74,15 @@
 <ng-template #elseBlock>
   <mat-card *ngFor="let data of medicament; let j = index">
     <mat-card-title>
-      <H4>Medicamento: {{data.medicament}}</H4>
-      <h4>Categoria: {{data.category}}</h4>
-      <h4>Descripción: {{data.description}}</h4>
-      <h4>Caracteristicas: {{data.characterist}}</h4>
-      <h4>Cantidad: {{data.quantity}}</h4>
-      <h4>Volumen: {{data.volumen}}</h4>
-      <h4>Costo: {{data.value}}</h4>
-      <img src="{{ data.photo}} " width="200" height="200">
-    </mat-card-title>
+      <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
+      <p> <strong>Categoria:</strong> {{data.category}}</p> 
+      <p> <strong>Descripción: </strong>{{data.description}}</p> 
+      <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
+      <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
+      <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
+      <p> <strong>Costo: </strong>{{data.value}}</p> 
+    <img src="{{ data.photo}} " width="200" height="200">
+  </mat-card-title>
 
     <mat-card-actions>
       <button mat-button (click)="DeleteMedicament(data)">
@@ -87,14 +101,14 @@
 <ng-template #elseBlock1>
   <mat-card-title>
     <titulo valor="Actualizar Medicamento"></titulo>
-    <H2>Medicamento a modificar: {{this.medic.medicament}}</H2>
-    <h3>Datos actuales del medicamento</h3>
-    <h4>Categoria: {{this.medic.category}}</h4>
-    <h4>Volumen: {{this.medic.volumen}}</h4>
-    <h4>Cantidad: {{this.medic.quantity}}</h4>
-    <h4>Valor: {{this.medic.value}}</h4>
-    <h4>Caracteristicas: {{this.medic.characterist}}</h4>
-    <h4>Descripción: {{this.medic.description}}</h4>
+    <h3><strong> Medicamento a modificar: </strong>{{this.medic.medicament}}</h3>
+    <h2> Datos actuales del medicamento</h2>
+    <p> <strong>Categoria:</strong> {{this.medic.category}}</p>
+    <p> <strong>Volumen: </strong>{{this.medic.volumen}}</p>
+    <p> <strong>Cantidad: </strong>{{this.medic.quantity}}</p>
+    <p> <strong>Valor:</strong> {{this.medic.value}}</p>
+    <p> <strong>Caracteristicas:</strong> {{this.medic.characterist}}</p>
+    <p> <strong>Descripción: </strong> {{this.medic.description}}</p>
     <img src="{{ this.medic.photo}} " width="200" height="200">
 
 
@@ -107,7 +121,7 @@
     <div class="row">
 
       <div class="col-sm-12 col-md-6">
-        <mat-select placeholder="Tipo" [(ngModel)]="mediUpdate.category" name="category">
+        <mat-select placeholder="Tipo de medicamento" [(ngModel)]="mediUpdate.category" name="category">
           <mat-option *ngFor="let data of options" [value]="data.value">
             {{ data.option }}
           </mat-option>
@@ -119,7 +133,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="caracteristicas" [(ngModel)]="mediUpdate.characterist" name="lastName">
+          <input matInput type="text" placeholder="Caracteristicas" [(ngModel)]="mediUpdate.characterist" name="lastName">
         </mat-form-field>
       </div>
       <div class="col-sm-12 col-md-6">
@@ -132,12 +146,12 @@
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="volumen" [(ngModel)]="mediUpdate.volumen" name="volumen">
+          <input matInput type="text" placeholder="Volumen" [(ngModel)]="mediUpdate.volumen" name="volumen">
         </mat-form-field>
       </div>
       <div class="col-sm-12 col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="valor" [(ngModel)]="mediUpdate.value" name="value" required>
+          <input matInput type="text" placeholder="Valor" [(ngModel)]="mediUpdate.value" name="value" required>
         </mat-form-field>
       </div>
 
@@ -154,7 +168,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" placeholder="descripcion" [(ngModel)]="mediUpdate.description" name="description">
+          <input matInput type="text" placeholder="Descripcion" [(ngModel)]="mediUpdate.description" name="description">
         </mat-form-field>
       </div>
 

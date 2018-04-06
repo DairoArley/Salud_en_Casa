@@ -1,0 +1,11 @@
+p{
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    display: block;
+}
+p strong{
+    font-size: 14px;
+    font-weight: bold;
+}

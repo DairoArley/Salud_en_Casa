@@ -1,13 +1,14 @@
 .contenedor-imagen{
     text-align: center;
+    width: 100%;
 }
 
-.contenedor-imagen img{
-    border-radius: 50%;
+.contenedor-imagen a img{
     display: inline-block;
     margin-bottom: 15px;
     max-width: 250px;
     height: auto;
+    width: 70%;
 }
 .contenedor-imagen a img:hover{
     opacity: 0.8;

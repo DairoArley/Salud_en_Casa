@@ -1,33 +1,33 @@
-<h1>Historial</h1>
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Historial</h1>
+  </div>
+</div> 
 <mat-card *ngFor="let data of record; let i = index">
   <mat-card-title>
-    <H4>Usario que realizo el cambio: {{data.user}}</H4>
+    <h3> <strong> Usario que realizó el cambio: </strong> {{data.user}}</h3>
   </mat-card-title>
  
   <mat-card>
-         <H1>Registro antiguo</H1>
-          <H2>Medicamento: {{data.recordOne[0].medicament}}</H2>
-          <h4>Categoria: {{data.recordOne[0].category}}</h4>
-          <h4>Volumen: {{data.recordOne[0].volumen}}</h4>
-          <h4>Cantidad: {{data.recordOne[0].quantity}}</h4>
-          <h4>Valor: {{data.recordOne[0].value}}</h4>
-          <h4>Caracteristicas: {{data.recordOne[0].characterist}}</h4>
-          <h4>Descripción: {{data.recordOne[0].description}}</h4>
+         <h3>Registro antiguo</h3>
+          <p> <strong> Medicamento: </strong> {{data.recordOne[0].medicament}}</p>
+          <p> <strong> Categoria:</strong> {{data.recordOne[0].category}}</p>
+          <p> <strong> Volumen: </strong>{{data.recordOne[0].volumen}}</p>
+          <p> <strong> Cantidad:</strong> {{data.recordOne[0].quantity}}</p>
+          <p> <strong> Valor:</strong> {{data.recordOne[0].value}}</p>
+          <p> <strong> Caracteristicas: </strong>{{data.recordOne[0].characterist}}</p>
+          <p> <strong> Descripción:</strong> {{data.recordOne[0].description}}</p>
           <img src="{{ data.recordOne[0].photo}} " width="200" height="200">
-
-
-   
   </mat-card> 
-  <mat-card >
-      
-     
-            <H1>Registro actual</H1>
-            <h4>Categoria: {{data.recordTwo[0].category}}</h4>
-            <h4>Volumen: {{data.recordTwo[0].volumen}}</h4>
-            <h4>Cantidad: {{data.recordTwo[0].quantity}}</h4>
-            <h4>Valor: {{data.recordTwo[0].value}}</h4>
-            <h4>Caracteristicas: {{data.recordTwo[0].characterist}}</h4>
-            <h4>Descripción: {{data.recordTwo[0].description}}</h4>
+
+  <mat-card >  
+      <h3>Registro actual</h3>
+            <p> <strong>Categoria: </strong> {{data.recordTwo[0].category}}</p>
+            <p> <strong>Volumen:</strong>  {{data.recordTwo[0].volumen}}</p>
+            <p> <strong>Cantidad: </strong> {{data.recordTwo[0].quantity}}</p>
+            <p> <strong>Valor:</strong>  {{data.recordTwo[0].value}}</p>
+            <p> <strong>Caracteristicas: </strong> {{data.recordTwo[0].characterist}}</p>
+            <p> <strong>Descripción:</strong>  {{data.recordTwo[0].description}}</p>
             <img src="{{ data.recordTwo[0].photo}} " width="200" height="200">
   
   

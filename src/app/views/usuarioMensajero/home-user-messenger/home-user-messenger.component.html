@@ -9,3 +9,41 @@ MEDICAMENTOS....
  </li>
   
 </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Bienvenido</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="texto-interna"> Selecciona a continuación la acción que desea realizar.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="contenedor-imagen">
+    <a href="/medicaments">
+      <img src="../assets/images/pills.png" alt="Ver medicamentos" class="boton-imagen">
+    </a>
+    <p>Ver medicamentos</p>
+  </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+      <div class="contenedor-imagen">
+    <a href="/changePassUserMessenger">
+      <img src="../assets/images/password.png" alt="Cambiar contraseña" class="boton-imagen">
+    </a>
+    <p>Cambiar contraseña</p>
+  </div>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <li *ngIf="_authenticationServices.isLoggedIn() !== ''">
+      <a href="/home" (click)="logout()">Salir</a>
+</li>
+  </div>
+</div>

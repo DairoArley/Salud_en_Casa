@@ -1,15 +1,18 @@
         
-  <h1>Clientes</h1>
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Clientes</h1>
+  </div>
+</div>
   <mat-card *ngFor = "let data of client">
       <mat-card-header>
       <mat-card-title>
-        <H4>Nombre: {{data.name}}</H4>
-        <h4>Apellido: {{data.lastName}}</h4>
-        <h4>Usuario: {{data.user}}</h4>
-        <h4>Edad: {{data.age}}</h4>
-        <h4>Genero: {{data.gender}}</h4>
+        <p> <strong>Nombre: </strong>{{data.name}}</p> 
+        <p> <strong>Apellido: </strong>{{data.lastName}}</p> 
+        <p> <strong>Usuario:</strong> {{data.user}}</p> 
+        <p> <strong>Edad: </strong>{{data.age}}</p> 
+        <p> <strong>Genero: </strong>{{data.gender}}</p> 
       </mat-card-title>
     </mat-card-header>
-  </mat-card>
-   
+  </mat-card>   
 
