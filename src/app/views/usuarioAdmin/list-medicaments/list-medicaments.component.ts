@@ -55,7 +55,7 @@ export class ListMedicamentsComponent implements OnInit {
 			(data: medicament[]) => {
 				this.medicament = data;
 				this.search = false;
-				this.modify = false;
+					this.modify = false;
 				this.home = true;
 
 			},
