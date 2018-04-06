@@ -98,9 +98,10 @@
           <div class="row">
             <div class="col-md-12 centered" style="text-align:center;">
               <mat-card-actions>
-                <button mat-button (click)="showProducts()">
-                  <mat-icon>shopping_basket</mat-icon>
-                  Ver carrito de compras                </button>
+                <button mat-button (click)="showProducts(data)">
+                  <mat-icon>shopping_cart</mat-icon>
+                  Ver carrito
+                </button>
               
         
               </mat-card-actions>
@@ -126,7 +127,6 @@
                     <p> <strong>Categoria:</strong> {{data.category}}</p> 
                     <p> <strong>Descripción: </strong>{{data.description}}</p> 
                     <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
-                    <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
                     <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
                     <p> <strong>Costo: </strong>{{data.value}}</p> 
                   <img src="{{ data.photo}} " width="200" height="200">
@@ -136,8 +136,7 @@
       
           <mat-card-actions>
               <button mat-button (click)="addMedicament(data)">
-                <mat-icon>shopping_cart
-                  </mat-icon>
+                <mat-icon>add_shopping_cart</mat-icon>
                 Añadir al carrito
               </button>
             
@@ -165,22 +164,32 @@
                 <p> <strong>Categoria:</strong> {{data.category}}</p> 
                 <p> <strong>Descripción: </strong>{{data.description}}</p> 
                 <p> <strong>Caracteristicas:</strong> {{data.characterist}}</p> 
-                <p> <strong>Cantidad:</strong> {{data.quantity}}</p> 
                 <p> <strong>Volumen: </strong>{{data.volumen}}</p> 
                 <p> <strong>Costo: </strong>{{data.value}}</p> 
               <img src="{{ data.photo}} " width="200" height="200">
             </mat-card-title>
+              <mat-card-actions>
+                <button mat-button (click)="removeMedicament(data, j)">
+                  <mat-icon>remove_shopping_cart
+                  </mat-icon>
+                  Quitar Del carrito 
+                </button>
+              
+        
+              </mat-card-actions>
+            
   
    
       
       
         </mat-card>
         <mat-card-actions>
-            <button mat-button (click)="buyMedicament(data)">
+            <button mat-button (click)="buyMedicament()">
               <mat-icon>shop</mat-icon>
               Comprar
             </button>
           
     
           </mat-card-actions>
+         
   </div>

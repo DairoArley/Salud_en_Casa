@@ -45,6 +45,7 @@ import { RegisterUserMessengerComponent } from './views/usuarioAdmin/register-us
 import { ListUserMessengerComponent } from './views/usuarioAdmin/list-user-messenger/list-user-messenger.component';
 import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/list-user-admin.component';
 import {ListRecordComponent} from './views/usuarioAdmin/list-record/list-record.component';
+import {CreditTarjetComponent} from './views/cliente/credit-tarjet/credit-tarjet.component';
 
 export const Router: Routes = [
 
@@ -79,7 +80,9 @@ export const Router: Routes = [
 { path: 'registerUserMessenger', component : RegisterUserMessengerComponent/*, canActivate:[GuardUserAdminGuard]*/},
 { path: 'listUserAdmin', component : ListUserAdminComponent/*, canActivate:[GuardUserAdminGuard]*/},
 { path: 'listUserMessenger', component : ListUserMessengerComponent/*, canActivate:[GuardUserAdminGuard]*/},
-{ path: 'listRecord', component : ListRecordComponent/*, canActivate:[GuardUserAdminGuard]*/}]
+{ path: 'listRecord', component : ListRecordComponent/*, canActivate:[GuardUserAdminGuard]*/},
+{ path: 'payment', component : CreditTarjetComponent/*, canActivate:[ClientGuardGuard]*/}
+]
 
 
 

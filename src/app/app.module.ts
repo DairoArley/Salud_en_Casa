@@ -76,6 +76,7 @@ import { ListRecordComponent } from './views/usuarioAdmin/list-record/list-recor
 import {recordService} from './services/record.service';
 import {purchaseService} from './services/purchase.service';
 import { MainNavigationComponent } from './common/navigation/main-navigation/main-navigation.component';
+import { CreditTarjetComponent } from './views/cliente/credit-tarjet/credit-tarjet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +120,8 @@ import { MainNavigationComponent } from './common/navigation/main-navigation/mai
     ListUserAdminComponent,
     ListUserMessengerComponent,
     ListRecordComponent,
-    MainNavigationComponent
+    MainNavigationComponent,
+    CreditTarjetComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 

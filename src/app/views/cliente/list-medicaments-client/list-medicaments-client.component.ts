@@ -20,11 +20,13 @@ export class ListMedicamentsClientComponent implements OnInit {
   medicament: Array<medicament>;
 	med: Array<medicament>;
 	medicamento = new Array() 
-  med1 = new purchase;
-  medicamentPurchse = new medicament();
+  med1 = new purchase();
+	medicamentPurchse = new medicament();
+	
 	urlName = Config.API_SERVER_FINDBYNAME;
   urlPurchase = Config.API_SERVER_PURCHASE;
 	urlCat = Config.API_SERVER_FINDBYCATEGORY;
+
 	search = false;
 	info = false;
 	home = true;
@@ -114,7 +116,8 @@ export class ListMedicamentsClientComponent implements OnInit {
 
 
   
-  addMedicament(medicament : medicament){ 
+  addMedicament(medicament : medicament){
+		medicament.quantity = 1;
 		this.medicamento.push(medicament)
 		console.log("Medicamento añadido");
 		
@@ -124,18 +127,26 @@ export class ListMedicamentsClientComponent implements OnInit {
 		
 	}
 	
+	removeMedicament(medicament : medicament, i){
+
+		this.medicamento.splice(i,1);
+		console.log(this.medicamento)
+		console.log("Medicamento borrado");
+		
+	}
+
   buyMedicament(){
-    const userSesion = this._locker.retrieve('user');
-		this.userSesion = userSesion;
+    this.userSesion = this._locker.retrieve('user');
 		this.user = this.userSesion.user;
     this.med1.nameUser = this.user;
-    this.med1.medicaments = this.med;
+		this.med1.medicaments = this.medicamento;
+		console.log(this.med1);
+		
     if (this._authenticationService.isLoggedIn() !== "") {
       this._purchaseService.onSavePurchase(this.med1).subscribe(
         res => {
-          this.getAllMedicaments();
-          this.search = true;
-          
+          this._router.navigate(['/payment']);
+					
         })
       
 		}
@@ -143,8 +154,13 @@ export class ListMedicamentsClientComponent implements OnInit {
 	}
 
 	back(){
+		this.search = false;
+		this.info = false;
+		this.home = true;
+		this.buy = false;
 		this.ngOnInit();
 	}
+
   showInfoSearch(medicament : medicament){
 		if (this._authenticationService.isLoggedIn() !== "") {
 			this._medicamentService.onFindByName(this.urlName, medicament).subscribe(
@@ -175,6 +191,7 @@ export class ListMedicamentsClientComponent implements OnInit {
 			    (data: medicament[]) => {
 				this.medicament = data;
 				this.search  =false;
+				this.buy = false;
 				this.home = false;
 				this.info = true;
 			  },
@@ -191,15 +208,12 @@ export class ListMedicamentsClientComponent implements OnInit {
 
 	showProducts(){
 		let i = 0;
-		while(1>this.medicamento.length){
+		while(i<this.medicamento.length){
 			if (this._authenticationService.isLoggedIn() !== "") {
 				this._medicamentService.onFindByName(this.urlName, this.medicamento[i]).subscribe(
 						(data: medicament[]) => {
 					this.medicament = data;
-					this.search  =false;
-					this.home = false;
-					this.info = false;
-					this.buy = true;
+				
 					},
 					err => {
 					console.log(err);
@@ -212,6 +226,10 @@ export class ListMedicamentsClientComponent implements OnInit {
 				}
 			i = i +1;
 		}
+		this.search  =false;
+		this.home = false;
+		this.info = false;
+		this.buy = true;
 		
 	}
 
