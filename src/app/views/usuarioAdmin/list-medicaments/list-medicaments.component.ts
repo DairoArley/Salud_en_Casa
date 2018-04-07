@@ -110,8 +110,7 @@ export class ListMedicamentsComponent implements OnInit {
 				this.medicament = data;
 				this.search = true;
 				this.modify = false;
-				this.home = false;
-				
+				this.home = false;				
 			  },
 			  err => {
 				console.log(err);

@@ -74,13 +74,17 @@
               </div>
             </div>
           </form>
+
+
+
+         
+
       
-      
-          <mat-card *ngFor="let data of medicament; let j = index">
+          <mat-card *ngFor="let data of medicament; let j = index" >
             <mat-card-title>
               <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
               <p> <strong>Costo: </strong>{{data.value}}</p> 
-            <img src="{{ data.photo}} " width="200" height="200">
+            <img src="{{ data.photo}} " width="200" height="250">
             </mat-card-title>
       
             <mat-card-actions>
