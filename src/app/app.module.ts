@@ -78,6 +78,9 @@ import {purchaseService} from './services/purchase.service';
 import { MainNavigationComponent } from './common/navigation/main-navigation/main-navigation.component';
 import { CreditTarjetComponent } from './views/cliente/credit-tarjet/credit-tarjet.component';
 import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/list-purchase.component';
+import {payUService} from './services/payU.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -147,7 +150,7 @@ import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/li
   ],
   providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
     userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, recordService,
-    purchaseService],
+    purchaseService, payUService],
   bootstrap: [AppComponent, MainNavigationComponent]
 })
 export class AppModule { }

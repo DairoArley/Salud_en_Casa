@@ -155,11 +155,12 @@ export class ListMedicamentsClientComponent implements OnInit {
     if (this._authenticationService.isLoggedIn() !== "") {
       this._purchaseService.onSavePurchase(this.med1).subscribe(
         res => {
-          window.location.href = "https://www.payulatam.com/co/";
+          
 					
         })
       
 		}
+		this._router.navigate(['/payment']);
 
 	}
 

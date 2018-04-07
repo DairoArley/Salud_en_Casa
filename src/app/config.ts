@@ -13,7 +13,8 @@ export const Config = {
     API_SERVER_FINDBYNAME: 'https://udea-salud-en-casa.herokuapp.com/v1/medicamentByName',
     API_SERVER_FINDBYCATEGORY: 'https://udea-salud-en-casa.herokuapp.com/v1/medicamentByCategory',
     API_SERVER_RECORD :'https://udea-salud-en-casa.herokuapp.com/v1/record',
-    API_SERVER_PURCHASE : 'https://udea-salud-en-casa.herokuapp.com/v1/purchase'
+    API_SERVER_PURCHASE : 'https://udea-salud-en-casa.herokuapp.com/v1/purchase',
+    API_PAYU : 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi'
 };
 
 /* export const Config = {

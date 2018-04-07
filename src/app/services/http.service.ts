@@ -35,6 +35,20 @@ export class HttpService {
     const options = new RequestOptions({headers: headers});
     return this._http.delete(url, options).map(response => response.json());
   }
+  public postPayU(url, params): Observable<any> {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin:': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+      'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Authorization, Origin, x-requested-with, Content-Type, Content-Range, Content-Disposition, Content-Description'
+     
+    })
+    const options = new RequestOptions({headers: headers});
+    const body = JSON.stringify(params);
+    console.log(body);
+    
+    return this._http.post(url, body, options).map(response => response.json());
+  }
 
 
 
