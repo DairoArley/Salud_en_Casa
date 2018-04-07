@@ -17,6 +17,9 @@ import { purchaseService } from '../../../services/purchase.service';
   styleUrls: ['./list-medicaments-client.component.css']
 })
 export class ListMedicamentsClientComponent implements OnInit {
+	showErrorMessage = false;
+	errorMessage = '';
+
   medicament: Array<medicament>;
 	med: Array<medicament>;
 	medicamento = new Array() 
@@ -81,6 +84,13 @@ export class ListMedicamentsClientComponent implements OnInit {
 				this.search  =true;
 				this.home = false;
 				this.info = false;
+				if(this.medicament.length == 0){
+						this.showErrorMessage = true;
+						this.search  =true;
+						this.home = false;
+						this.info = false;
+						this.errorMessage = "No existen medicamentos con estas caracteristicas";
+				}
 			  },
 			  err => {
 				console.log(err);
@@ -145,7 +155,7 @@ export class ListMedicamentsClientComponent implements OnInit {
     if (this._authenticationService.isLoggedIn() !== "") {
       this._purchaseService.onSavePurchase(this.med1).subscribe(
         res => {
-          this._router.navigate(['/payment']);
+          window.location.href = "https://www.payulatam.com/co/";
 					
         })
       

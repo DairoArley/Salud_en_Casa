@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ListPurchaseComponent implements OnInit {
 
-  purchase: Array<purchase>;
+	purchase: Array<purchase>;
+	medicaments : Array<any>
   constructor(private _purchaseService: purchaseService, 
     private _router : Router) { }
 

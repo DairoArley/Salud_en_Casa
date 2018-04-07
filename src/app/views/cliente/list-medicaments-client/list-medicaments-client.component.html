@@ -52,6 +52,7 @@
               <div class="col-sm-12 col-md-6">
                 <button class="example-button-row" [disabled]="!findByMedForm.form.valid" mat-button block>Buscar</button>
               </div>
+              <br><br><span id="error-msg-login" [hidden]="!showErrorMessage" >{{errorMessage}}</span>
             </div>
           </form>
           <div class="row">
