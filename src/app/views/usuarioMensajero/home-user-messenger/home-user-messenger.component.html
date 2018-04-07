@@ -1,17 +1,3 @@
-ACA VA TODO LO BONITO QUE VE UN USUARIO MENSAJERO AL INGRESAR: FOTOS, INFO DE LA EMPRESA, MENU...ETC
-MEDICAMENTOS....
-<div class="col-sm-12 col-md-6">
-  Este es el menu.
-    <a href="/medicaments">Ver medicamentos</a>>
-    <a href="/changePassUserMessenger">Cambiar contraseña</a>>
-    <a href="/listPurchase">Ver compras</a>>
-    <li *ngIf="_authenticationServices.isLoggedIn() !== ''">
-        <a href="/home" (click)="logout()">Salir</a>
- </li>
-  
-</div>
-
-
 <div class="row">
   <div class="col-md-12">
       <h1 class="titulo-interna">Bienvenido</h1>
@@ -23,7 +9,7 @@ MEDICAMENTOS....
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="contenedor-imagen">
     <a href="/medicaments">
       <img src="../assets/images/pills.png" alt="Ver medicamentos" class="boton-imagen">
@@ -31,7 +17,7 @@ MEDICAMENTOS....
     <p>Ver medicamentos</p>
   </div>
   </div>
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="contenedor-imagen">
     <a href="/changePassUserMessenger">
       <img src="../assets/images/password.png" alt="Cambiar contraseña" class="boton-imagen">
@@ -39,6 +25,15 @@ MEDICAMENTOS....
     <p>Cambiar contraseña</p>
   </div>
   </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="contenedor-imagen">
+  <a href="/listPurchase">
+    <img src="../assets/images/messenger.png" alt="Ver Compras" class="boton-imagen">
+  </a>
+  <p>Ver Compras</p>
+</div>
+</div>
   
 </div>
 <div class="row">

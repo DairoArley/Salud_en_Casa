@@ -1,5 +1,33 @@
-<div id="navbar">
-    <a href="/home">Inicio</a>
-    <a href="#">Pedir servicio</a>
-    <a href="#">Comprar medicamentos</a>
+<div *ngIf="messenger">
+<div id="navbar">   
+    <a href="/hohomeUserMessengerme">Inicio</a>
+    <a href="/hohomeUserMessengerme">Ver Medicamentos</a>
+    <a href="/changePassUserMessenger">Cambiar contraseña</a>
+    <a href="/listPurchase">Ver Compras</a>
+    <a href="/home" (click)="logout()">Salir</a>
   </div>
+</div>
+
+<div *ngIf="client">
+  <div id="navbar">   
+      <a href="/homeClient">Inicio</a>
+      <a href="/medicaments">Medicamentos</a>
+      <a href="/changePassClient">Cambiar contraseña</a>
+      <a href="/home" (click)="logout()">Salir</a>
+    </div>
+  </div>
+
+  <div *ngIf="admin">
+    <div id="navbar">   
+        <a href="/homeClient">Inicio</a>
+        <a href="/listClient">Ver Clientes</a>
+        <a href="/medicaments">Ver Medicamentos</a>
+        <a href="/registerMedicament">Registrar Medicamentos</a>
+        <a href="/registerUserAdmin">Registrar Administrador</a>
+        <a href="/registerUserMessenger">Registrar Mensajero</a>
+        <a href="/listUserAdmin">Ver Administradores</a>
+        <a href="/listUserMessenger">Ver Mensajeros</a>
+        <a href="/listRecord">Historial</a>
+        <a href="/home" (click)="logout()">Salir</a>
+      </div>
+    </div>

@@ -1,20 +1,105 @@
-ACA VA TODO LO BONITO QUE VE UN USUARIO ADMINISTRADOR AL INGRESAR: FOTOS, INFO DE LA EMPRESA, MENU...ETC
-
-<div class="col-sm-12 col-md-6">
-  Este es el menu.
-    <a href="/changePassUserAdmin">Cambiar contraseña</a>>
-    <a href="/listClient">Mostrar clientes</a>>
-    <a href="/listMedicament">Mostrar medicamentos</a>>
-    <a href="/registerMedicament">Registrar medicamentos</a>>
-    <a href="/registerUserAdmin">Registrar usuario administrador</a>>
-    <a href="/registerUserMessenger">Registrar usuario mensajero</a>>
-    <a href="/listUserAdmin">mostar usuarios administradores</a>>
-    <a href="/listUserMessenger">mostrar usuario mensajeros</a>>
-    <a href="/listRecord">mostrar historial de cambios</a>>
-
-
-    <li *ngIf="_authenticationServices.isLoggedIn() !== ''">
-        <a href="/home" (click)="logout()">Salir</a>
- </li>
-  
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="titulo-interna">Bienvenido</h1>
+  </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="texto-interna"> Selecciona a continuación la acción que desea realizar.</p>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="contenedor-imagen">
+    <a href="/changePassUserMessenger">
+      <img src="../assets/images/password.png" alt="Cambiar contraseña" class="boton-imagen">
+    </a>
+    <p>Cambiar contraseña</p>
+  </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="contenedor-imagen">
+  <a href="/listClient">
+    <img src="../assets/images/cliente.png" alt="Mostrar clientes" class="boton-imagen">
+  </a>
+  <p>Mostrar clientes</p>
+  </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="contenedor-imagen">
+    <a href="/medicaments">
+      <img src="../assets/images/pills.png" alt="Ver medicamentos" class="boton-imagen">
+    </a>
+    <p>Ver medicamentos</p>
+  </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="contenedor-imagen">
+  <a href="/registerMedicament">
+    <img src="../assets/images/add-pill.png" alt="Registar medicamento" class="boton-imagen">
+  </a>
+  <p>Registar medicamento</p>
+</div>
+</div>
+</div>
+
+
+<div class="row">
+  
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="contenedor-imagen">
+<a href="/registerUserAdmin">
+  <img src="../assets/images/add-admin.png" alt="Registar administrador" class="boton-imagen">
+</a>
+<p>Registar administrador</p>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="contenedor-imagen">
+  <a href="/registerUserMessenger">
+    <img src="../assets/images/add-messenger.png" alt="Registar mensajero" class="boton-imagen">
+  </a>
+  <p>Registar mensajero</p>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="contenedor-imagen">
+<a href="/listUserAdmin">
+  <img src="../assets/images/view-managers.png" alt="Ver administradores" class="boton-imagen">
+</a>
+<p>Ver administradores</p>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="contenedor-imagen">
+<a href="/listUserMessenger">
+  <img src="../assets/images/view-messengers.png" alt="Ver mensajeros" class="boton-imagen">
+</a>
+<p>Ver mensajeros</p>
+</div>
+</div>
+</div>
+
+<div class="row">
+ 
+
+
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="contenedor-imagen">
+  <a href="/listRecord">
+    <img src="../assets/images/changes.png" alt="Historial de cambios" class="boton-imagen">
+  </a>
+  <p>Historial de cambios</p>
+</div>
+</div>
+</div>
+
