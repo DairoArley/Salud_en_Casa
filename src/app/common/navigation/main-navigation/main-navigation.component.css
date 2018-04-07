@@ -15,6 +15,11 @@
   text-decoration: none;
 }
 
+#navbar a:hover {
+  background-color: white;
+  color: #333;
+}
+
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
