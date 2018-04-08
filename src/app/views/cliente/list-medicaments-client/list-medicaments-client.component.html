@@ -81,22 +81,26 @@
 
       
           <mat-card *ngFor="let data of medicament; let j = index" >
-            <mat-card-title>
-              <p> <strong>Medicamento: </strong>{{data.medicament}}</p> 
-              <p> <strong>Costo: </strong>{{data.value}}</p> 
-            <img src="{{ data.photo}} " width="200" height="250">
-            </mat-card-title>
-      
-            <mat-card-actions>
-                <button mat-button (click)="showInfoHome(data)">
-                  <mat-icon>announcement</mat-icon>
-                  Mirar detalle
-                </button>
-              
-        
-              </mat-card-actions>
-      
+              <div class="cardMedicament">
+                  <img src="{{ data.photo}}" alt="Photo" width="200" height="250">
+                  <h1>{{data.medicament}}</h1>
+                  <p class="title">Precio por unidad</p>
+                  <p>{{data.value}}</p>
+                
+                  <a href="#"><i class="fa fa-dribbble"></i></a> 
+                  <a href="#"><i class="fa fa-twitter"></i></a> 
+                  <a href="#"><i class="fa fa-linkedin"></i></a> 
+                  <a href="#"><i class="fa fa-facebook"></i></a> 
+                  <mat-card-actions>
+                      <p><button mat-button (click)="showInfoHome(data)">
+                          <mat-icon>announcement</mat-icon>
+                          Ver Detalle
+                      </button></p>
+                  </mat-card-actions>
+                  
+                </div>      
           </mat-card>
+
           <div class="row">
             <div class="col-md-12 centered" style="text-align:center;">
               <mat-card-actions>
