@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div *ngIf="search">
     <mat-card *ngFor="let data of medicament; let j = index">
         <mat-card-actions>
@@ -70,7 +72,7 @@
                 </mat-select>
               </div>
               <div class="col-sm-12 col-md-6">
-                <button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
+                <button  mat-raised-button class="example-button-row" [disabled]="!findByCatForm.form.valid" mat-button block>Buscar</button>
               </div>
             </div>
           </form>
@@ -86,13 +88,12 @@
                   <h1>{{data.medicament}}</h1>
                   <p class="title">Precio por unidad</p>
                   <p>{{data.value}}</p>
-                
-                  <a href="#"><i class="fa fa-dribbble"></i></a> 
-                  <a href="#"><i class="fa fa-twitter"></i></a> 
-                  <a href="#"><i class="fa fa-linkedin"></i></a> 
-                  <a href="#"><i class="fa fa-facebook"></i></a> 
+                  
+                  <a ><i class="material-icons">account_balance</i></a>
+                  <mat-card-subtitle>Salud en Casa</mat-card-subtitle>       
+                  
                   <mat-card-actions>
-                      <p><button mat-button (click)="showInfoHome(data)">
+                      <p><button mat-raised-button (click)="showInfoHome(data)">
                           <mat-icon>announcement</mat-icon>
                           Ver Detalle
                       </button></p>
