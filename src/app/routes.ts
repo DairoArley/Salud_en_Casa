@@ -82,7 +82,7 @@ export const Router: Routes = [
 { path: 'listUserAdmin', component : ListUserAdminComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'listUserMessenger', component : ListUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'listRecord', component : ListRecordComponent, canActivate:[GuardUserAdminGuard]},
-{ path: 'payment', component : CreditTarjetComponent, canActivate:[ClientGuardGuard]},
+{ path: 'payment', component : CreditTarjetComponent},
 { path: 'listPurchase', component : ListPurchaseComponent, canActivate:[GuardUserMessengerGuard]},
 { path: 'medicament', component : ListMedicamentsClientComponent, canActivate:[GuardUserMessengerGuard]}
 ]

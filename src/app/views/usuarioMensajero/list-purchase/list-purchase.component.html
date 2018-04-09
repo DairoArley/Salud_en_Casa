@@ -11,21 +11,3 @@
       
     </mat-card-title>
 
-</mat-card>  
-    <mat-card *ngFor = "let date of purchase.medicaments; let i = index">
-    
-        <mat-card-header>
-          <mat-card-title>
-              <p> <strong>Productos: </strong>{{date.medicament}}</p>
-              <p> <strong>Productos: </strong>{{date.category}}</p>
-              <p> <strong>Productos: </strong>{{date.quantity}}</p>
-              <p> <strong>Productos: </strong>{{date.value}}</p>
-              <img src="{{ date[i].photo}} " width="200" height="200">
-              
-
-              
-          </mat-card-title>
-          
-        
-      </mat-card-header>
-    </mat-card>   
