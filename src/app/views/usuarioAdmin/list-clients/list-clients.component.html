@@ -3,16 +3,18 @@
   <div class="col-md-12">
       <h1 class="titulo-interna">Clientes</h1>
   </div>
-</div>
-  <mat-card *ngFor = "let data of client">
+</div> 
+
+  <mat-card *ngFor="let data of client">
+    <div class="cardClient">
       <mat-card-header>
-      <mat-card-title>
-        <p> <strong>Nombre: </strong>{{data.name}}</p> 
-        <p> <strong>Apellido: </strong>{{data.lastName}}</p> 
-        <p> <strong>Usuario:</strong> {{data.user}}</p> 
-        <p> <strong>Edad: </strong>{{data.age}}</p> 
-        <p> <strong>Genero: </strong>{{data.gender}}</p> 
-      </mat-card-title>
-    </mat-card-header>
-  </mat-card>   
+        <mat-card-title center>{{data.name}} {{data.lastName}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>Usuario : {{data.user}}</mat-card-subtitle>
+        <mat-card-subtitle>Edad : {{data.age}}</mat-card-subtitle>
+        <mat-card-subtitle>Género : {{data.gender}}</mat-card-subtitle>
+      </mat-card-content>                    
+    </div>  
+  </mat-card>
 
