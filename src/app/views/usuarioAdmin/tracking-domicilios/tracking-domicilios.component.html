@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="titulo-interna">Historico de domicilios</h1>
+    </div>
+</div>
+<div *ngIf="home">
+    <mat-card *ngFor="let data of tracking" class="cardMedicament">
+        <mat-card-title >
+            <p>
+                <strong>Cliente: </strong>{{data.user}}</p>
+            <p>
+                <strong>Valor de la venta: </strong>{{data.value}}</p>
+            <p>
+                <strong>Ruta: </strong>
+            </p>
+            <img src="{{ data.img}} " width="400" height="400">
+            <button mat-button (click)="showInfo(data)">
+                <mat-icon>announcement</mat-icon>
+                Mirar detalle
+            </button>
+
+        </mat-card-title>
+        </mat-card>
+</div>
+<div *ngIf="info">
+    <button mat-button (click)="back()">
+        <mat-icon>keyboard_backspace</mat-icon>
+        atras
+    </button>
+    <mat-card *ngFor="let data of tracking2" class="cardMedicament">
+        <mat-card-title>
+            <p>
+                <strong>Cliente: </strong>{{data.user}}</p>
+            <p>
+                <strong>Valor de la venta: </strong>{{data.value}}</p>
+            <p>
+                <strong>Mensajero: </strong>{{data.messenger}}</p>
+            <p>
+                <strong>Tiempo estimado para entregar el domicilio: </strong>{{data.timeOne}} Minutos</p>
+            <p>
+                <strong>Tiempo estimado para volver a la central: </strong>{{data.timeTwo}} Minutos</p>
+            <p>
+                <strong>Ruta: </strong>
+            </p>
+
+            <img src="{{ data.img}} " width="400" height="400">
+
+
+        </mat-card-title>
+        </mat-card>
+
+</div>

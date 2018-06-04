@@ -47,6 +47,7 @@ import { ListUserAdminComponent } from './views/usuarioAdmin/list-user-admin/lis
 import {ListRecordComponent} from './views/usuarioAdmin/list-record/list-record.component';
 import {CreditTarjetComponent} from './views/cliente/credit-tarjet/credit-tarjet.component';
 import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/list-purchase.component';
+import { TrackingDomiciliosComponent } from './views/usuarioAdmin/tracking-domicilios/tracking-domicilios.component';
 
 export const Router: Routes = [
 
@@ -82,10 +83,12 @@ export const Router: Routes = [
 { path: 'listUserAdmin', component : ListUserAdminComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'listUserMessenger', component : ListUserMessengerComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'listRecord', component : ListRecordComponent, canActivate:[GuardUserAdminGuard]},
+{ path: 'trackingDomicilios', component : TrackingDomiciliosComponent, canActivate:[GuardUserAdminGuard]},
 { path: 'payment', component : CreditTarjetComponent},
 { path: 'listPurchase', component : ListPurchaseComponent, canActivate:[GuardUserMessengerGuard]},
 { path: 'medicament', component : ListMedicamentsClientComponent, canActivate:[GuardUserMessengerGuard]}
 ]
+
 
 
 

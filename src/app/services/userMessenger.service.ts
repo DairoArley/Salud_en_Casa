@@ -11,6 +11,7 @@ import { userMessenger  } from '../models/userMessenger.model';
 import { changePass  } from '../models/changePass.model';
 import { HttpService } from './http.service';
 import { Config } from '../config';
+import { Tracking } from '../models/tracking.model';
 
 @Injectable()
 export class userMessengerService extends HttpService{
@@ -30,6 +31,11 @@ export class userMessengerService extends HttpService{
 
 	onChangePass(url, changePass : changePass){
         return this.post(url, changePass)				
+	}
+
+	onAtender(tracking : Tracking){
+		let link = Config.API_SERVER_TRACKING
+        return this.post(link, tracking)				
 	}
 
 	

@@ -19,7 +19,6 @@ import{
 } from '@angular/material';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import { HttpClientModule} from '@angular/common/http';
-
 import {Router} from './routes'
 import { AppComponent } from './app.component';
 import { Boton } from './common/form/button/boton.component';
@@ -79,6 +78,8 @@ import { MainNavigationComponent } from './common/navigation/main-navigation/mai
 import { CreditTarjetComponent } from './views/cliente/credit-tarjet/credit-tarjet.component';
 import { ListPurchaseComponent } from './views/usuarioMensajero/list-purchase/list-purchase.component';
 import {payUService} from './services/payU.service';
+import { TrackingDomiciliosComponent } from './views/usuarioAdmin/tracking-domicilios/tracking-domicilios.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -126,7 +127,8 @@ import {payUService} from './services/payU.service';
     ListRecordComponent,
     MainNavigationComponent,
     CreditTarjetComponent,
-    ListPurchaseComponent
+    ListPurchaseComponent,
+    TrackingDomiciliosComponent
   ],
   imports: [
     RouterModule.forRoot(Router), 
@@ -146,7 +148,12 @@ import {payUService} from './services/payU.service';
   MatIconModule	, 
   MatSelectModule,
   Ng2Webstorage,
-  HttpClientModule
+  HttpClientModule,
+  AgmCoreModule.forRoot({
+    // please get your own API key here:
+    // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+    apiKey: 'AIzaSyDq6OZOfoGLM7geMDr5Njsd8grg3SkAndA'
+  })
   ],
   providers: [clientService, HttpService, medicamentService, AuthenticationService, ClientGuardGuard,
     userAdminService, GuardUserAdminGuard, userMessengerService, GuardUserMessengerGuard, recordService,

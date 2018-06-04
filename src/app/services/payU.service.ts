@@ -18,8 +18,9 @@ export class payUService extends HttpService {
 
 	verify(payment : any): Observable<Array<payment>> {
 		const url = Config.API_PAYU;
-
-		return this.postPayU(url, payment);
+	
+		
+		return this.postPayU(url, payment);		
 	}
 
 

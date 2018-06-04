@@ -128,7 +128,10 @@ export class CreditTarjetComponent implements OnInit {
 			
 			},
 			err => {
-				console.log(err);
+        //this.payment = data;
+        this._router.navigate([ '/medicaments' ]);
+
+				//console.log(err);
 			},
 			() => {
 				//console.log('finished!');
