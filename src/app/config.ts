@@ -1,4 +1,4 @@
-/* export const Config = {
+ export const Config = {
     API_SERVER_CLIENTS : 'https://udea-salud-en-casa.herokuapp.com/v1/client',
     API_SERVER_MEDICAMENT : 'https://udea-salud-en-casa.herokuapp.com/v1/medicament',
     API_SERVER_SINGIN_CLIENT : 'https://udea-salud-en-casa.herokuapp.com/v1/clientSingIn',
@@ -17,8 +17,8 @@
     API_SERVER_TRACKING : 'https://udea-salud-en-casa.herokuapp.com/v1/trackingDomicilios',
     API_SERVER_TRACKING_ONLY : 'https://udea-salud-en-casa.herokuapp.com/v1/trackingOneDomicilios',
     API_PAYU : 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi'
-}; */
-
+}; 
+/*
  export const Config = {
     API_SERVER_CLIENTS : 'http://localhost:8080/v1/client',
     API_SERVER_MEDICAMENT : 'http://localhost:8080/v1/medicament',
@@ -40,4 +40,4 @@
 
     API_PAYU : 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi'
 
-};
+};*/
